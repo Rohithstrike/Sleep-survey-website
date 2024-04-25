@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+</head>
+<body>
+    <!-- Header and Navigation Bar -->
+    <!-- ... -->
+
+    <form id="quizForm" class="mt-4" action="/submit" method="post">
+        <!-- Personal Details Section -->
+        <!-- ... -->
+
+        <!-- Questions Section -->
+        <!-- ... -->
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="button" class="btn btn-primary" onclick="showPersonalDetails()">Back</button>
+    </form>
+
+    <div id="sum" style="display: none;"></div>
+
+    <script>
+        let sum = 0;
+
+        // ... (The rest of your JavaScript code)
+
+        quizForm.addEventListener('submit', function(e) {
+            if (!validateForm()) {
+                e.preventDefault(); // Prevent form submission if validation fails
+            } else {
+                // Redirect to the results page
+                window.location.href = '/submit?sum=' + sum;
+            }
+        });
+    </script>
+
+</body>
+</html>
