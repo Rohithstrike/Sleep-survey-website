@@ -71,6 +71,10 @@ def quiz():
 def loader():
     return render_template('loader.html')
 
+@app.route('/thankyou')
+def thankyou():
+    return render_template('thankyou.html')
+
 @app.route('/submit', methods=['POST'])
 def submit():
     try:
@@ -107,10 +111,6 @@ def submit():
         db.session.rollback()
         return str(e), 500
 
-@app.route('/thankyou')
-def thankyou():
-    return render_template('thankyou.html')
-
 @app.route('/export-csv', methods=['GET'])
 def export_csv():
     try:
@@ -126,6 +126,8 @@ def export_csv():
         return send_from_directory(directory=basedir, path='users.csv', as_attachment=True)
     except Exception as e:
         return str(e), 500
+
+
 
 if __name__ == '__main__':
     with app.app_context():  # Wrap db.create_all in an application context

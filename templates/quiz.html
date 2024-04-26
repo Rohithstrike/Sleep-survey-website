@@ -10,7 +10,6 @@
     <div class="header"> <!-- Defines a header section -->
         <div class="header__logo">
             <img src="{{ url_for('static', filename='svg/moon3.svg') }}" alt="Logo" class="logo"> <!-- Logo image -->
-            
         </div>
         <nav class="navbar"> <!-- Navigation bar -->
             <ul class="navbar__menu"> <!-- Unordered list for menu items -->
@@ -53,7 +52,7 @@
                 <label for="email">Email:</label>
                 <input type="email" class="form-control" id="email" name="email" required>
             </div>
-    
+
             <button type="button" class="btn btn-primary" onclick="showQuestions()">Next</button>
         </div>
 
@@ -67,7 +66,7 @@
                     <option value="2">6:30 am to 7:45 am</option>
                     <option value="3">7:45am to 9:45 am</option>
                     <option value="4">9:45 am to 11:00 am</option>
-                    <option value="5">11:00 am to 12:00 noon</option>
+                    <option value="5">11:00am to 12:00 noon</option>
                 </select>
             </div>
             <div class="form-group">
@@ -219,7 +218,7 @@
                     <option selected disabled value="">Select an option</option><option value="1">Would be on good form</option>
                     <option value="2">Would be on reasonable form</option>
                     <option value="3">Would find it difficult</option>
-                    <option value="4">Would find it very difficult</option>
+                    <optionvalue="4">Would find it very difficult</option>
                 </select>
             </div>
 
@@ -312,13 +311,18 @@
             quizForm.addEventListener('submit', function(e) {
                 if (!validateForm()) {
                     e.preventDefault(); // Prevent form submission if validation fails
+                } else {
+                    // Store the sum in a cookie when the form is submitted
+                    document.cookie = `sum=${sum}; path=/`;
                 }
             });
         });
 
         function showQuestions() {
-            document.getElementById('personalDetails').style.display = 'none';
-            document.getElementById('quizQuestions').style.display = 'block';
+            if (validatePersonalDetails()) {
+                document.getElementById('personalDetails').style.display = 'none';
+                document.getElementById('quizQuestions').style.display = 'block';
+            }
         }
 
         function showPersonalDetails() {
@@ -329,11 +333,26 @@
         function validateForm() {
             var selects = document.querySelectorAll('#quizQuestions select');
             for (var i = 0; i < selects.length; i++) {
-                if(selects[i].value === '') {
+                if (selects[i].value === '') {
                     alert('Please answer all questions before submitting.');
                     return false;
                 }
             }
+            return true;
+        }
+
+        function validatePersonalDetails() {
+            const name = document.getElementById("name").value.trim();
+            const age = document.getElementById("age").value.trim();
+            const gender = document.getElementById("gender").value.trim();
+            const number = document.getElementById("number").value.trim();
+            const email = document.getElementById("email").value.trim();
+
+            if (name === "" || age === "" || gender === "" || number === "" || email === "") {
+                alert("Please fill in all the required fields in the Personal Details section before proceeding.");
+                return false;
+            }
+
             return true;
         }
     </script>
