@@ -272,7 +272,8 @@
     <div id="sum" style="display: none;"></div>
 
     <script>
-        let sum = 0;
+       
+       let sum = 0;
 
         function calculateSum() {
             const selectedElement = event.target;
@@ -288,9 +289,10 @@
                 selectedElement.setAttribute('data-previous-value', selectedValue);
             }
 
-            document.getElementById('sum').textContent = `Sum: ${sum}`;
-            document.getElementById('sum').style.display = 'block';
+            // Store the sum in a cookie
+            document.cookie = `sum=${sum}; path=/`;
         }
+
 
         document.addEventListener('DOMContentLoaded', function() {
             // Prevent form submission on Enter key press
