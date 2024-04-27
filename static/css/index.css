@@ -2,7 +2,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-image: url('../background/og.jpeg');
+    background-image: url('../background/model2.jpg');
     background-size: cover;
     height: 100vh;
     background-position: center;
@@ -16,7 +16,7 @@ body {
   
   h1 {
     font-size: 80px;
-    color: #000000;
+    color: rgb(253, 253, 253);
     margin-bottom: 20px;
     font-family: 'Nunito' , sans-serif;
     text-align: left;
@@ -29,7 +29,7 @@ body {
   
   h2 {
     font-size: 35px;
-    color: #000000;
+    color: rgb(255, 255, 255);
     margin-bottom: 10px;
     margin-top: 50px;
     font-family: 'Nunito' , sans-serif;
@@ -181,16 +181,17 @@ body {
     transition: background-color 0.3s ease;}
   
     #takeQuizButton:hover {
-      background-color: rgb(30, 67, 82);  /* Darker shade on hover */
+      background-color: whitesmoke  /* Darker shade on hover */
     }
   
     #homeButton:hover {
-      background-color: rgb(30, 67, 82);  /* Darker shade on hover */
+      background-color: whitesmoke  /* Darker shade on hover */
     }
   
   .logo {
     width: 90px; /* Change this value to adjust the width */
     height: 70px; /* Automatically adjust height according to width */
+    color: whitesmoke;
   }
   
   
