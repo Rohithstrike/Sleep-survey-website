@@ -17,25 +17,35 @@
 
     <script>
         function getSumCookie() {
-            const cookieName = 'sum=';
-            const cookies = document.cookie.split(';');
+    const cookieName = 'sum=';
+    const cookies = document.cookie.split(';');
 
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
+    for (let i = 0; i < cookies.length; i++) {
+        const cookie = cookies[i].trim();
 
-                if (cookie.indexOf(cookieName) === 0) {
-                    return parseInt(cookie.substring(cookieName.length));
-                }
-            }
-
-            return null;
+        if (cookie.indexOf(cookieName) === 0) {
+            return parseInt(cookie.substring(cookieName.length));
         }
+    }
 
-        const sum = getSumCookie();
+    return null;
+}
 
-        if (sum !== null) {
-            document.getElementById('quiz-score').textContent = sum;
-        }
+const sum = getSumCookie();
+
+if (sum!== null) {
+    let animal = '';
+
+    if (sum >= 59 && sum <= 89) {
+        animal = 'Lark';
+    } else if (sum >= 42 && sum <= 58) {
+        animal = 'Bear';
+    } else if (sum >= 16 && sum <= 41) {
+        animal = 'Owl';
+    }
+
+    document.getElementById('quiz-score').textContent = `Your score: ${sum} - ${animal}`;
+}
     </script>
 </body>
 </html>
