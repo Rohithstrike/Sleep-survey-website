@@ -1,84 +1,3 @@
-body {
-  font-family: Arial, sans-serif;
-  background-color: #ffffff;
-  background-image: url('../background/blur.jpeg');
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
- 
-}
-
-
-
-body {
-  background-color: rgba(255, 255, 255, 0);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  font-family: 'Open Sans', sans-serif;
-
-}
-
-
-
-section {
-  background-color:  #f5b6d900; 
-  border-radius: 20px;
-  /*box-shadow: 0 2px 4px rgba(201, 199, 199, 0.1);*/
-  padding: 20px;
-  margin-left: 60px;
-  margin-right: 60px;
-  margin-top: 20px;
-  
-  
-}
-
-h2 {
-  color: #ffffff;
-  font-size: 24px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-p {
-  color: #ffffff;
-  font-size: 16px;
-  text-align: center;
-  line-height: 1.5;
-}
-
-.button-container {
-  display: flex;
-  justify-content: center;
-  margin-top: auto;
-}
-
-#takeQuizButton {
-  background-color: red;
-  color: white;
-  padding: 15px 40px; /* Increase padding for larger button */
-  border: 2px solid red; /* Add border */
-  border-radius: 10px; /* Increase border radius for rounded corners */
-  cursor: pointer;
-  font-size: 16px;
-  margin-bottom: 20px;
-  transition: background-color 0.3s, border-color 0.3s; /* Add transition for border-color */
-}
-
-#takeQuizButton:hover {
-  background-color: green;
-  border-color: green; /* Change border color on hover */
-}
-
-#takeQuizButton:focus {
-  outline: none;
-}
-
-
-
 
 /* this is for nav bar */
 :root {
@@ -92,9 +11,6 @@ p {
   --linkWidth: 10rem;
 }
 
-/* Import Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
-
 /* Global Styles */
 
 /* Header Styles */
@@ -106,12 +22,12 @@ p {
   background: rgb(0, 0, 0);       /* this is to change the nav bar colour */
   color: var(--text);
   padding: 0 var(--spacer) * 2;
- /* box-shadow: 0 0 40px rgb(153, 135, 158); */
   height: 6rem;
   display: flex;
   align-items: center;
   gap: 3rem;
 }
+
 .black-rectangle {
   background-color: #ffffff00;
   position: absolute;
@@ -181,7 +97,6 @@ p {
 .header__logo {
   margin-right: auto; /* Pushes the logo to the left */
   margin-left: auto; /* Pushes the logo to the right */
-
 }
 
 .logo {
@@ -191,22 +106,11 @@ p {
 
 /* quiz button */ 
 
-
 /* Centered button */
-/* Quiz button container */
 .quiz-button-container {
   text-align: center;
   margin-top: 40px; /* Adjust margin as needed */
 }
-
-.logo {
-  transition: transform 0.3s ease; /* Smooth transition */
-}
-
-.logo:hover {
-  transform: scale(1.1); /* Scale up the logo on hover */
-}
-
 
 #takeQuizButton {
   padding: 20px 40px; /* Adjust padding for button size */
@@ -227,6 +131,75 @@ p {
   outline: none;
 }
 
-#takeQuizButton:active {
-  background-color: green !important; /* Change button color when clicked */
+/* Global Styles */
+
+
+/* Sleep questions sections */
+
+
+h2 {
+  font-size: 28px; /* Increase font size for headings */
+  text-align: center;
+  margin-bottom: 10px;
 }
+
+p {
+  font-size: 18px; /* Increase font size for paragraphs */
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* quiz button */
+/* Centered button */
+.quiz-button-container {
+  text-align: center;
+  margin-top: 40px; /* Adjust margin as needed */
+  margin-bottom: 40px; /* Add margin to push the button up */
+}
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: black;
+  background-image: url('../background/model7_blur.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  color: #fff; /* Set default text color to white */
+}
+
+/* Sleep questions sections */
+section {
+  background-color: transparent; /* Darker background color */
+  border-radius: 10px; /* Increase border radius */
+  padding: 20px;
+  margin: 20px 60px; /* Adjust margin */
+}
+
+h2 {
+  font-size: 30px; /* Increase font size for headings */
+  text-align: center; /* Change text alignment to left */
+  margin-bottom: 10px;
+  color: #fff; /* Set text color to white */
+}
+
+p {
+  font-size: 20px; /* Increase font size for paragraphs */
+  text-align: center; /* Change text alignment to left */
+  line-height: 1.5;
+  color: white; /* Set text color to a brighter shade of white */
+  font-weight: 1000;
+}
+
+
+/* quiz button */
+/* Centered button */
+.quiz-button-container {
+  text-align: center;
+  margin-top: 40px; /* Adjust margin as needed */
+  margin-bottom: 40px; /* Add margin to push the button up */
+}
+
+

@@ -346,6 +346,7 @@ h2 {
 
 .buttons button:hover p:after {
   top: 50%;
+  background-color: transparent;
   transform: translateY(-50%);
 }
 
@@ -391,4 +392,26 @@ h2 {
 
 .buttons button:focus {
   outline: 0;
+}
+
+
+.buttons button {
+  width: 150px;
+  height: 50px;
+  background-color: #ffffff; /* Change background color to white */
+  margin: 20px;
+  color: #568fa6;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
 }
