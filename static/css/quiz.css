@@ -20,10 +20,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background:
-    linear-gradient(to right, #ff0000, #ff0000),
-    linear-gradient(to right, #00ff00, #00ff00),
-    linear-gradient(to right, #0000ff, #0000ff);
+  background: rgb(168, 154, 137);
   background-blend-mode: screen;
   background-size: 20% 100%; /* Adjust the size of the gradient stripes */
   background-position: 0% 0%, 50% 0%, 100% 0%; /* Position the gradient stripes */

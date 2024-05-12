@@ -4,76 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/thankyou.css') }}">
-    <title>Quiz Thank You</title>
+    <title>Thank You</title>
 </head>
 <body>
     <div class="carousel"></div>
     <main class="container">
-        <h1>Thank you very much for taking the quiz!</h1>
-        <p>The quiz outcome, along with your genetic test results, will be sent to your registered email ID and WhatsApp number.
-            Please be patient as we perform the genetic test and generate a personalized report for you.</p>
+        <h1 id="greeting">Thank you very much for taking the quiz, <span id="user-name"></span>!</h1>
+        <p>The quiz outcome, along with your genetic test results, will be sent to your registered email ID and WhatsApp number. Please be patient as we perform the genetic test and generate a personalized report for you.</p>
         <div id="quiz-result"></div>
+        <p>For further inquiries, please contact us at <a href="mailto:decodeyourclockgene@gmail.com" style="color: white;">decodeyourclockgene@gmail.com</a> </p>
+
         <a href="{{ url_for('quiz') }}" class="btn btn-primary">Back to Quiz</a>
     </main>
 
     <script>
-        const cookieName = 'sum=';
-        const score = parseInt(document.cookie.match(new RegExp(cookieName + '([^;]*)'))[1]);
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieName = 'name=';
+            const cookieUser = document.cookie.split(';').find(row => row.trim().startsWith('name='));
+            const userName = cookieUser ? cookieUser.split('=')[1] : '';
 
-        if (score !== null) {
-            let animal = '';
-            let content = '';
+            const score = parseInt(document.cookie.match(new RegExp('sum=([^;]*)'))[1]);
 
-            if (score >= 59 && score <= 89) {
-                animal = 'Lark';
-                content = `
-                    <p>Score: ${score} - ${animal}</p>
-                    <img src="/static/background/lark.jpg" alt="Bear Image" class="animal-image">
-                    <h2>About the ${animal}</h2>
-                    <p>Real life is going on when you have to go to bed. And when you wake up, you are the only one on Earth.</p>
-                    <p>Easily get up in the morning. Do not need an alarm clock to wake up.</p>
-                    <p>About 15% of the people are Larks.</p>
-                    <p>Avoid taking up a job or team role that requires working late at night.</p>
-                    <h2>Suggested Daily Schedule for a ${animal}</h2>
-                    <p>5.30 AM to 6.00 AM: Ideal wake up time.</p>
-                    <p>10.00 AM to 12.00 PM: Best performance time.</p>
-                    p>12.00 PM to 1.00 PM: Lunch time.</p>
-                    <p>1.00 PM to 5.00 PM: Time for creativity, out-of-box thinking, generating new ideas, reading, and brainstorming.</p>
-                    <p>5.00 PM to 6.00 PM: Time for exercise.</p>
-                    <p>6.00 PM to 7.30 PM: Time for making and having dinner.</p>
-                    <p>7.30 PM to 9.00 PM: Time for any activity other than watching digital screens.</p>
-                    <p>9.00 PM: Ideal time to sleep.</p>
-                `;
-            } else if (score >= 42 && score <= 58) {
-                animal = 'Bear';
-                content = `
-                    <p>Score: ${score} - ${animal}</p>
-                    <img src="/static/background/bear.jpg" alt="Bear Image" class="animal-image">
-                    <h2>About the ${animal}</h2>
-                    <p>Neither an early bird nor a late owl, rise with the Sun and feel sleepy as the Sun sets.</p>
-                    <p>A majority of the people, about 55%, are Bears.</p>
+            if (!isNaN(score)) {
+                let animal = '';
+                let content = '';
+
+                if (score >= 59 && score <= 89) {
+                    animal = 'Lark';
+                    content = `
+                        <p>Score: ${score} - ${animal}</p>
+                        <img src="/static/background/lark.jpg" alt="Lark Image" class="animal-image">
+                        <h2>About the ${animal}</h2>
+                        <p>Real life is going on when you have to go to bed. And when you wake up, you are the only one on Earth.</p>
+                        <p>Easily get up in the morning. Do not need an alarm clock to wake up.</p>
+                        <p>About 15% of the people are Larks.</p>
+                        <p>Avoid taking up a job or team role that requires working late at night.</p>
+                        <h2>Suggested Daily Schedule for a ${animal}</h2>
+                        <p>5.30 AM to 6.00 AM: Ideal wake up time.</p>
+                        <p>10.00 AM to 12.00 PM: Best performance time.</p>
+                        <p>12.00 PM to 1.00 PM: Lunch time.</p>
+                        <p>1.00 PM to 5.00 PM: Time for creativity, out-of-box thinking, generating new ideas, reading, and brainstorming.</p>
+                        <p>5.00 PM to 6.00 PM: Time for exercise.</p>
+                        <p>6.00 PM to 7.30 PM: Time for making and having dinner.</p>
+                        <p>7.30 PM to 9.00 PM: Time for any activity other than watching digital screens.</p>
+                        <p>9.00 PM: Ideal time to sleep.</p>
+                        
+                    `;
+                } else if (score >= 42 && score <= 58) {
+                    animal = 'Bear';
+                    content = `
+                        <p>Score: ${score} - ${animal}</p>
+                        <img src="/static/background/bear.jpg" alt="Bear Image" class="animal-image">
+                        <h2>About the ${animal}</h2>
+                        <p>Neither an early bird nor a late owl, rise with the Sun and feel sleepy as the Sun sets.</p>
+                        <p>A majority of the people, about 55%, are Bears.</p>
                     <p>Getting up early in the morning is difficult. Will need an alarm clock to wake up.</p>
                     <p>You are naturally wired to be productive. It is not wise to spoil it by sleeping late at night and waking up late.</p>
                     <h2>Suggested Daily Schedule for a ${animal}</h2>
                     <p>7.00 AM: Ideal wake up time.</p>
                     <p>10 AM to 12.00 noon: Best performance time.</p>
-                    p>12.00 PM to 1.00 PM: Lunch time.</p>
+                    <p>12.00 PM to 1.00 PM: Lunch time.</p>
                     <p>1.00 PM to 2.30 PM: You are still alert and can do important work.</p>
                     <p>2.30 to 2.50 PM: Power nap.</p>
                     <p>3.00 PM to 6.00 PM: Time for creativity, out-of-box thinking, generating new ideas, reading, and brainstorming.</p>
                     <p>6.00 PM to 7.00 PM: Time for exercise.</p>
                     <p>7.00 PM to 9.00 PM: Time for making and having dinner.</p>
                     <p>9.00 PM: Ideal time to sleep.</p>
-                   
-                `;
-            } else if (score >= 13 && score <= 41) {
-                animal = 'Owl';
-                content = `
-                    <p>Score: ${score} - ${animal}</p>
-                    <img src="/static/background/owl.jpg" alt="Bear Image" class="animal-image">
-                    <h2>About the ${animal}</h2>
-                    <p>Your day begins as the Sun goes down and you can perform your best tasks during this time.</p>
-                    <p>A lot of creativity, imagination, and nocturnal thinking occurs at night.</p>
+                     
+                    `;
+                } else if (score >= 13 && score <= 41) {
+                    animal = 'Owl';
+                    content = `
+                        <p>Score: ${score} - ${animal}</p>
+                        <img src="/static/background/owl.jpg" alt="Owl Image" class="animal-image">
+                        <h2>About the ${animal}</h2>
+                        <p>Your day begins as the Sun goes down and you can perform your best tasks during this time.</p>
+                        <p>A lot of creativity, imagination, and nocturnal thinking occurs at night.</p>
                     <p>Sleep is a high priority. Get the sleep you need to stay fresh.</p>
                     <p>Ideal for roles like IT professionals, late-night shift workers, or people with insomnia.</p>
                     <h2>Suggested Daily Schedule for a ${animal}</h2>
@@ -85,15 +91,17 @@
                     <p>12.00 PM to 1.00 PM: Lunch time.</p>
                     <p>1.00 PM to 3.00 PM: Time for socializing and any leisure activities.</p>
                     <p>3.00 PM to 9.00 PM: Time for relaxation, hobbies, or downtime.</p>
-                `;
-            } else {
-                content = 'The score is invalid. Please retake the quiz.';
-            }
+                    `;
+                } else {
+                    content = 'The score is invalid. Please retake the quiz.';
+                }
 
-            document.getElementById('quiz-result').innerHTML = content;
-        } else {
-            document.getElementById('quiz-result').innerHTML = 'The score is not available. Please take the quiz again.';
-        }
+                document.getElementById('quiz-result').innerHTML = content;
+                document.getElementById('user-name').textContent = userName;
+            } else {
+                document.getElementById('quiz-result').innerHTML = 'The score is not available. Please take the quiz again.';
+            }
+        });
     </script>
 </body>
 </html>
