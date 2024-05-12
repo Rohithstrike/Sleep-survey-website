@@ -1,5 +1,3 @@
-/* Global Styles */
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -11,8 +9,6 @@ body {
   line-height: 1.6;
   background-color: #f4f4f4;
 }
-
-/* Container Styles */
 
 .container {
   max-width: 800px;
@@ -26,16 +22,12 @@ body {
   align-items: center;
 }
 
-/* Header Styles */
-
 h1 {
   font-size: 36px;
   margin-bottom: 20px;
   color: #333;
   text-align: center;
 }
-
-/* Paragraph Styles */
 
 p {
   font-size: 18px;
@@ -44,8 +36,6 @@ p {
   text-align: center;
 }
 
-/* Quiz Result Styles */
-
 #quiz-result {
   margin-top: 40px;
   padding: 20px;
@@ -53,8 +43,6 @@ p {
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-
-/* Button Styles */
 
 .btn {
   display: inline-block;
@@ -78,32 +66,50 @@ p {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Animations */
-
-.container {
-  animation: fadeIn 1s ease;
+.carousel {
+  width: 100%;
+  height: 100vh;
+  position: center;
+  overflow: hidden;
 }
 
-@keyframes fadeIn {
+.carousel::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4%;
+  height: 1%;
+  animation: carousel-animation slow 50s infinite linear;
+}
+
+@keyframes carousel-animation {
   0% {
-    opacity: 0;
+      transform: translateX(0);
+  }
+  25% {
+      transform: translateX(-25%);
+  }
+  50% {
+      transform: translateX(-50%);
+  }
+  75% {
+      transform: translateX(-75%);
   }
   100% {
-    opacity: 1;
+      transform: translateX(0);
   }
 }
 
-/* Media Queries */
-
 @media (max-width: 600px) {
- .container {
-    margin: 20px auto;
-    padding: 10px;
+  .container {
+      margin: 20px auto;
+      padding: 10px;
   }
   h1 {
-    font-size: 24px;
+      font-size: 24px;
   }
   p {
-    font-size: 16px;
+      font-size: 16px;
   }
 }

@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
 </head>
 <body>
-        <div class="container">
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-            <div class="slice"></div>
-          </div>
-    </div>
+    <div id="page">
+        <div id="container">
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="ring"></div>
+            <div id="h3">loading</div>
+        </div>
+</div>
     <script>
         setTimeout(function() {
             window.location.href = '/thankyou';
-        }, 5000);
+        }, 9000);
     </script>
 </body>
 </html>
+

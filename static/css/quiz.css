@@ -8,6 +8,7 @@
   --timing: 250ms;
   --transition: var(--timing) ease all;
   --linkWidth: 10rem;
+  --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Styles */
@@ -19,10 +20,14 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background-color: rgba(128, 128, 128, 0.422);
- 
-  background-size: cover;
-  background-position: center;
+  background:
+    linear-gradient(to right, #ff0000, #ff0000),
+    linear-gradient(to right, #00ff00, #00ff00),
+    linear-gradient(to right, #0000ff, #0000ff);
+  background-blend-mode: screen;
+  background-size: 20% 100%; /* Adjust the size of the gradient stripes */
+  background-position: 0% 0%, 50% 0%, 100% 0%; /* Position the gradient stripes */
+  transition: background-color 0.5s ease; /* Add transition effect to body background */
 }
 
 /* Header Styles */
@@ -31,14 +36,15 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: rgb(0, 0, 0);
+  background: black;
   color: var(--text);
   padding: 0 var(--spacer) * 2;
-  box-shadow: 0 0 40px rgba(153, 135, 158, 0);
+  box-shadow: 0 0 40px rgba(187, 0, 238, 0);
   height: 6rem;
   display: flex;
   align-items: center;
   gap: 3rem;
+  transition: background-color 0.5s ease; /* Add transition effect to header background */
 }
 
 .black-rectangle {
@@ -79,6 +85,7 @@ body {
   text-decoration: none;
   width: var(--linkWidth);
   text-transform: uppercase;
+  box-shadow: var(--shadow); /* Add box shadow to links */
 }
 
 .navbar__link svg {
@@ -125,11 +132,12 @@ body {
 /* Container Styles */
 .container {
   max-width: 800px;
-  margin: 20px auto;
+  margin:20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
+  transition: box-shadow 0.5s ease; /* Add transition effect to container box shadow */
 }
 
 /* Form Group Styles */
@@ -178,6 +186,7 @@ select:focus {
   border-radius: var(--borderRadius);
   cursor: pointer;
   transition: background-color 0.3s;
+  box-shadow: var(--shadow); /* Add box shadow to button */
 }
 
 .btn-primary:hover {
@@ -188,6 +197,7 @@ select:focus {
 .personal-details {
   position: relative;
   overflow: hidden;
+  transition: background-color 0.5s ease; /* Add transition effect to personal details background */
 }
 
 .personal-details::before {
@@ -208,18 +218,24 @@ select:focus {
 
 /* Responsive layout */
 @media (max-width: 768px) {
-  .container {
+ .container {
     padding: 10px;
   }
 }
-/* Container Styles */
+
+/* Additional Visual Effects */
 .personal-details {
   max-width: 800px;
   margin: 100px auto; /* Change this to "auto" for left and right margin */
   padding: 20px;
   background-color: #fff;
   border-radius: 0; /* Changed border-radius to 0 for square appearance */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow);
+  transform: translateY(0); /* Add initial transform value */
+  transition: transform 0.5s ease; /* Add transition effect to personal details transform */
 }
 
-
+.personal-details:hover {
+  transform: translateY(-10px); /* Add hover effect to personal details transform */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add hover effect to personal details box shadow */
+}
