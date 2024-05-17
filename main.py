@@ -19,8 +19,10 @@ if os.getenv('VERCEL_ENV'):
         shutil.copyfile(src_database_path, dest_database_path)
     
     db_path = dest_database_path
+    print(f"Database path on Vercel: {db_path}")
 else:
     db_path = os.path.join(basedir, 'user_info.db')
+    print(f"Database path locally: {db_path}")
 
 # Configure Flask app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
