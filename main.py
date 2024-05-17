@@ -124,10 +124,10 @@ def export_csv():
     except Exception as e:
         return str(e), 500
 
-@app.route('/init-db')
-def init_db():
+# Ensure the database is created
+@app.before_first_request
+def initialize_database():
     db.create_all()
-    return "Database initialized!"
 
 if __name__ == '__main__':
     app.run(debug=True, port=3000)
