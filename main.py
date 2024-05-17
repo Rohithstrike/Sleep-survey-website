@@ -6,9 +6,6 @@ import os
 
 app = Flask(__name__)
 
-# Get the absolute path to the directory of the current file
-basedir = os.path.abspath(os.path.dirname(__file__))
-
 # Use the writable temporary directory for the SQLite database
 db_path = os.path.join('/tmp', 'user_info.db')
 
@@ -127,7 +124,10 @@ def export_csv():
     except Exception as e:
         return str(e), 500
 
+@app.route('/init-db')
+def init_db():
+    db.create_all()
+    return "Database initialized!"
+
 if __name__ == '__main__':
-    with app.app_context():  # Wrap db.create_all in an application context
-        db.create_all()
     app.run(debug=True, port=3000)
