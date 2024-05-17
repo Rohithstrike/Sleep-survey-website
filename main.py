@@ -1,4 +1,4 @@
-from flask import Flask, request, redirect, render_template, url_for, send_from_directory
+from flask import Flask, request, redirect, render_template, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 import csv
 from sqlalchemy.exc import SQLAlchemyError
@@ -9,8 +9,8 @@ app = Flask(__name__)
 # Get the absolute path to the directory of the current file
 basedir = os.path.abspath(os.path.dirname(__file__))
 
-# Set the path to the SQLite database file
-db_path = os.path.join(basedir, 'user_info.db')
+# Use the writable temporary directory for the SQLite database
+db_path = os.path.join('/tmp', 'user_info.db')
 
 # Configure Flask app
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + db_path
@@ -115,7 +115,7 @@ def submit():
 def export_csv():
     try:
         query = User.query.all()
-        csv_path = os.path.join(basedir, 'users.csv')
+        csv_path = os.path.join('/tmp', 'users.csv')
         with open(csv_path, mode='w', newline='') as file:
             writer = csv.writer(file)
             header = [column.name for column in User.__table__.columns]
@@ -123,11 +123,9 @@ def export_csv():
             for user in query:
                 row = [getattr(user, column) for column in header]
                 writer.writerow(row)
-        return send_from_directory(directory=basedir, path='users.csv', as_attachment=True)
+        return send_from_directory(directory='/tmp', path='users.csv', as_attachment=True)
     except Exception as e:
         return str(e), 500
-
-
 
 if __name__ == '__main__':
     with app.app_context():  # Wrap db.create_all in an application context
