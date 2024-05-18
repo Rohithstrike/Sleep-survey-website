@@ -79,7 +79,7 @@ h2 {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(30, 67, 82, 0);      
+    background: transparent;        
     color: var(--text);
     padding: 0 var(--spacer) * 2;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);

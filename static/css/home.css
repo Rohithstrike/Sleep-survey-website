@@ -1,17 +1,26 @@
-
-/* this is for nav bar */
 :root {
   --borderRadius: 10px;
   --spacer: 1rem;
   --primary: #C4151C;
   --text: #fff;
   --linkHeight: calc(var(--spacer) * 3.5);
-  --timing: 250ms;
-  --transition: var(--timing) ease all;
+  --timing: 400ms; /* Increased timing for smoother transitions */
+  --transition: var(--timing) cubic-bezier(0.25, 0.8, 0.25, 1); /* Smooth cubic-bezier easing */
   --linkWidth: 10rem;
 }
 
 /* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(255, 255, 255);
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  color: #31426a; /* Set default text color */
+}
 
 /* Header Styles */
 .header {
@@ -19,9 +28,9 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgb(0, 0, 0);       /* this is to change the nav bar colour */
+  background: #31426a; /* Nav bar colour */
   color: var(--text);
-  padding: 0 var(--spacer) * 2;
+  padding: 0 calc(var(--spacer) * 2);
   height: 6rem;
   display: flex;
   align-items: center;
@@ -64,7 +73,6 @@
   color: var(--text);
   transition: var(--transition);
   text-decoration: none;
-  width: var(--linkWidth);
   text-transform: uppercase;
 }
 
@@ -104,9 +112,7 @@
   height: 70px; /* Automatically adjust height according to width */
 }
 
-/* quiz button */ 
-
-/* Centered button */
+/* Quiz button */
 .quiz-button-container {
   text-align: center;
   margin-top: 40px; /* Adjust margin as needed */
@@ -120,86 +126,50 @@
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease, border-color 0.3s; /* Add transition for border-color */
+  transition: background-color var(--transition), border-color var(--transition); /* Smooth transitions */
 }
 
 #takeQuizButton:hover {
-  background-color: rgb(30, 67, 82);  /* Darker shade on hover */
+  background-color: rgb(30, 67, 82); /* Darker shade on hover */
 }
 
 #takeQuizButton:focus {
   outline: none;
 }
 
-/* Global Styles */
-
-
-/* Sleep questions sections */
-
-
-h2 {
-  font-size: 28px; /* Increase font size for headings */
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 18px; /* Increase font size for paragraphs */
-  text-align: center;
-  line-height: 1.5;
-}
-
-/* quiz button */
-/* Centered button */
-.quiz-button-container {
-  text-align: center;
-  margin-top: 40px; /* Adjust margin as needed */
-  margin-bottom: 40px; /* Add margin to push the button up */
-}
-/* Global Styles */
-body {
-  font-family: Arial, sans-serif;
-  background-color: black;
-  background-image: url('../background/model7_blur.jpg');
-  background-size: cover;
-  background-position: center;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  color: #fff; /* Set default text color to white */
-}
-
 /* Sleep questions sections */
 section {
-  background-color: transparent; /* Darker background color */
-  border-radius: 10px; /* Increase border radius */
-  padding: 20px;
-  margin: 20px 60px; /* Adjust margin */
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  border-radius: var(--borderRadius);
+  padding: 40px; /* Increase padding for a better layout */
+  margin: 30px 40px; /* Adjust margin */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow for more depth */
+  transition: transform var(--transition), box-shadow var(--transition); /* Smooth transition effects */
+}
+
+section:hover {
+  transform: scale(1.05); /* Scale up slightly on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
 
 h2 {
   font-size: 30px; /* Increase font size for headings */
-  text-align: center; /* Change text alignment to left */
+  text-align: center; /* Center align text */
   margin-bottom: 10px;
-  color: #fff; /* Set text color to white */
+  color: #31426a; /* Set text color */
 }
 
 p {
   font-size: 20px; /* Increase font size for paragraphs */
-  text-align: center; /* Change text alignment to left */
+  text-align: center; /* Center align text */
   line-height: 1.5;
-  color: white; /* Set text color to a brighter shade of white */
+  color: #31426a; /* Set text color */
   font-weight: 1000;
 }
 
-
-/* quiz button */
 /* Centered button */
 .quiz-button-container {
   text-align: center;
   margin-top: 40px; /* Adjust margin as needed */
   margin-bottom: 40px; /* Add margin to push the button up */
 }
-
-
