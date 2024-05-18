@@ -20,7 +20,7 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: rgb(61, 73, 134);
+  background: rgb(202, 202, 202);
   background-blend-mode: screen;
   background-size: 20% 100%; /* Adjust the size of the gradient stripes */
   background-position: 0% 0%, 50% 0%, 100% 0%; /* Position the gradient stripes */
@@ -284,3 +284,41 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.personal-details {
+  max-width: 800px;
+  margin: 100px auto; /* Change this to "auto" for left and right margin */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 0; /* Changed border-radius to 0 for square appearance */
+  box-shadow: var(--shadow);
+  transform: translateY(0); /* Add initial transform value */
+  transition: transform 0.5s ease; /* Add transition effect to personal details transform */
+}
+
+.personal-details:hover {
+  transform: translateY(-10px); /* Add hover effect to personal details transform */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add hover effect to personal details box shadow */
+}
+
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.form-check label {
+  margin-left: 10px;
+}
+
+.form-check input[type="radio"] {
+  margin-right: 5px;
+}
+
