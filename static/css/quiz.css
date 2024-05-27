@@ -1,3 +1,6 @@
+/* Importing font */
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
 /* Variables */
 :root {
   --borderRadius: 10px;
@@ -22,7 +25,8 @@ body {
   background: url('/static/background/login_bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  transition: background-color 0.5s ease; /* Add transition effect to body background */
+  margin: 0;
+  transition: background-color 0.5s ease;
 }
 
 /* Header Styles */
@@ -31,7 +35,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: #31426a; /* Nav bar colour */
+  background: #31426a;
   color: var(--text);
   padding: 0 calc(var(--spacer) * 2);
   box-shadow: 0 0 40px rgba(187, 0, 238, 0);
@@ -39,7 +43,7 @@ body {
   display: flex;
   align-items: center;
   gap: 3rem;
-  transition: background-color 0.5s ease; /* Add transition effect to header background */
+  transition: background-color 0.5s ease;
 }
 
 .black-rectangle {
@@ -49,7 +53,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Ensure it's behind other content */
+  z-index: -1;
 }
 
 /* Navbar Styles */
@@ -79,7 +83,7 @@ body {
   transition: var(--transition);
   text-decoration: none;
   text-transform: uppercase;
-  box-shadow: var(--shadow); /* Add box shadow to links */
+  box-shadow: var(--shadow);
 }
 
 .navbar__link svg {
@@ -109,18 +113,18 @@ body {
 }
 
 .header__logo {
-  margin-right: auto; /* Pushes the logo to the left */
-  margin-left: auto; /* Pushes the logo to the right */
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .logo {
-  width: 90px; /* Change this value to adjust the width */
-  height: 70px; /* Automatically adjust height according to width */
-  transition: transform 0.3s ease; /* Smooth transition */
+  width: 90px;
+  height: 70px;
+  transition: transform 0.3s ease;
 }
 
 .logo:hover {
-  transform: scale(1.1); /* Scale up the logo on hover */
+  transform: scale(1.1);
 }
 
 /* Container Styles */
@@ -131,7 +135,7 @@ body {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: var(--shadow);
-  transition: box-shadow 0.5s ease; /* Add transition effect to container box shadow */
+  transition: box-shadow 0.5s ease;
 }
 
 /* Form Group Styles */
@@ -144,10 +148,9 @@ body {
 
 label {
   font-weight: bold;
-  display: block; /* Ensures labels appear on top of inputs */
-  margin-bottom: 5px; /* Adds space between label and input */
+  display: block;
+  margin-bottom: 5px;
   color: white;
-
 }
 
 /* Input Styles */
@@ -164,7 +167,6 @@ input[type="email"] {
   transition: border-color 0.3s;
 }
 
-/* Improved focus state for input fields */
 input:focus,
 select:focus {
   outline: none;
@@ -182,152 +184,129 @@ select:focus {
   border-radius: var(--borderRadius);
   cursor: pointer;
   transition: background-color 0.3s;
-  box-shadow: var(--shadow); /* Add box shadow to button */
+  box-shadow: var(--shadow);
 }
 
 .btn-primary:hover {
   background-color: #5248cc;
 }
 
-/* Visual Effects on Personal Details Area */
-.personal-details {
-  position: relative;
-  overflow: hidden;
-  transition: background-color 0.5s ease; /* Add transition effect to personal details background */
+/* Personal Details Box Styles */
+.personal-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 6rem);
 }
 
-.personal-details::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.8));
-  transform: translateX(-100%);
-  transition: transform 0.5s ease;
+.wrapper {
+  width: 500px;
+  border-radius: 8px;
+  padding: 30px;
+  margin-top: 400px;
+  margin-bottom: 100px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
-.personal-details:hover::before {
-  transform: translateX(0);
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-  .container {
-    padding: 10px;
-  }
-}
-
-/* Additional Visual Effects */
-.personal-details {
-  max-width: 800px;
-  margin: 100px auto; /* Change this to "auto" for left and right margin */
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 0; /* Changed border-radius to 0 for square appearance */
-  box-shadow: var(--shadow);
-  transform: translateY(0); /* Add initial transform value */
-  transition: transform 0.5s ease; /* Add transition effect to personal details transform */
-}
-
-.personal-details:hover {
-  transform: translateY(-10px); /* Add hover effect to personal details transform */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add hover effect to personal details box shadow */
-}
-
-/* Styles for the radio button quiz */
-.quiz-container {
-  background-color: #f0f0f0;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-}
-
-.question {
-  color: #333;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.options label {
-  display: block;
-  margin-bottom: 10px;
-}
-
-.options input[type="radio"] {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.options label {
-  color: #333;
-}
-
-.submit-btn {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.submit-btn:hover {
-  background-color: #0056b3;
-}
-
-.form-group {
+form {
   display: flex;
   flex-direction: column;
-  margin-bottom: 20px;
 }
 
-.form-check {
+h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.input-field {
+  position: relative;
+  border-bottom: 2px solid #ccc;
+  margin: 15px 0;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 16px;
+  pointer-events: none;
+  transition: 0.15s ease;
+}
+
+.input-field input {
+  width: 100%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #fff;
+}
+
+.input-field input:focus~label,
+.input-field input:valid~label {
+  font-size: 0.8rem;
+  top: 10px;
+  transform: translateY(-120%);
+}
+
+.forget {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  margin: 25px 0 35px 0;
+  color: #fff;
 }
 
-.form-check label {
-  margin-left: 10px;
+#remember {
+  accent-color: #fff;
 }
 
-.form-check input[type="radio"] {
-  margin-right: 5px;
+.forget label {
+  display: flex;
+  align-items: center;
 }
 
-.form-container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 20px;
-  border: transparent;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  background-color: transparent;
-  margin-top: 80px;
+.forget label p {
+  margin-left: 8px;
 }
 
-.form-group {
-  margin-bottom: 15px;
+.wrapper a {
+  color: #efefef;
+  text-decoration: none;
 }
 
-.form-group label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
+.wrapper a:hover {
+  text-decoration: underline;
 }
 
-.form-control {
-  width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+button {
+  background: #fff;
+  color: #000;
+  font-weight: 600;
+  border: none;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-radius: 3px;
+  font-size: 16px;
+  border: 2px solid transparent;
+  transition: 0.3s ease;
 }
 
-.form-control:focus {
-  border-color: #66afe9;
-  outline: none;
-  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+button:hover {
+  color: #fff;
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.register {
+  text-align: center;
+  margin-top: 30px;
+  color: #fff;
 }
