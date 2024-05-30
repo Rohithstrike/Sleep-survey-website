@@ -8,57 +8,50 @@
 </head>
 <body>
 <div class="header">
-  <div class="header__logo">
-    <img src="{{ url_for('static', filename='svg/moon3.svg') }}" alt="Logo" class="logo">
-  </div>
-  <nav class="navbar">
-    <ul class="navbar__menu">
-      <li class="navbar__item">
-        <a href="{{ url_for('index') }}" class="navbar__link"><span>Home</span></a>
-      </li>
-      <li class="navbar__item">
-        <a href="{{ url_for('about') }}" class="navbar__link"><span>About</span></a>
-      </li>
-      <li class="navbar__item">
-        <a href="mailto:decodeyourclockgene@gmail.com" class="navbar__link"><span>Contact</span></a>
-      </li>
-    </ul>
-  </nav>
+<div class="header__logo">
+<img src="{{ url_for('static', filename='svg/moon3.svg') }}" alt="Logo" class="logo">
 </div>
-
-<div class="center-container">
-  <div class="wrapper">
-    <form id="quizForm" class="mt-4" action="/submit" method="post">
-      <h2>Personal Details</h2>
-      <div class="input-field">
-        <input type="text" class="form-control" id="name" name="name" required>
-        <label for="name">Name:</label>
-      </div>
-      <div class="input-field">
-        <input type="number" class="form-control" id="age" name="age" required>
-        <label for="age">Age:</label>
-      </div>
-      <div class="input-field">
-        <div class="select-wrapper">
-          <select class="form-control" id="gender" name="gender">
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-          <label for="gender">Gender:</label>
-        </div>
-      </div>
-      <div class="input-field">
-        <input type="text" class="form-control" id="number" name="number" required>
-        <label for="number">Number:</label>
-      </div>
-      <div class="input-field">
-        <input type="email" class="form-control" id="email" name="email" required>
-        <label for="email">Email:</label>
-      </div>
-      <button type="submit">Submit</button>
-    </form>
-  </div>
+<nav class="navbar">
+<ul class="navbar__menu">
+<li class="navbar__item">
+<a href="{{ url_for('index') }}" class="navbar__link"><span>Home</span></a>
+</li>
+<li class="navbar__item">
+<a href="{{ url_for('about') }}" class="navbar__link"><span>About</span></a>
+</li>
+<li class="navbar__item">
+<a href="mailto:decodeyourclockgene@gmail.com" class="navbar__link"><span>Contact</span></a>
+</li>
+</ul>
+</nav>
+</div>
+<form id="quizForm" class="mt-4" action="/submit" method="post">
+<div class="form-container">
+<div id="personalDetails">
+<div class="form-group">
+<label for="name">Name:</label>
+<input type="text" class="form-control" id="name" name="name" required>
+</div>
+<div class="form-group">
+<label for="age">Age:</label>
+<input type="number" class="form-control" id="age" name="age" required>
+</div>
+<div class="form-group">
+<label for="gender">Gender:</label>
+<select class="form-control" id="gender" name="gender">
+<option value="male">Male</option>
+<option value="female">Female</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div class="form-group">
+<label for="number">Number:</label>
+<input type="text" class="form-control" id="number" name="number" required>
+</div>
+<div class="form-group">
+<label for="email">Email:</label>
+<input type="email" class="form-control" id="email" name="email" required>
+</from>
 </div>
 
 <button type="button" class="btn btn-primary btn-next" onclick="showQuestions()">Next</button>
