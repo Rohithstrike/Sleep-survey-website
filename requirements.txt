@@ -1,4 +1,4 @@
-Flask
-flask_sqlalchemy
-gunicorn
-flask_pymongo==3.0.1
+Flask==3.0.3
+flask_sqlalchemy==3.1.1
+gunicorn==22.0.0
+flask_pymongo==2.3.0
