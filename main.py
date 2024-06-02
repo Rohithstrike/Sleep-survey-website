@@ -5,8 +5,8 @@ import os
 
 app = Flask(__name__)
 
-# MongoDB configuration (local)
-mongo_uri = 'mongodb://localhost:27017/know-your-sleep-genetics'
+# MongoDB Atlas configuration
+mongo_uri = 'mongodb+srv://rohith3085:xz6tjuQKjA7WDpjj@cluster0.hfretfn.mongodb.net/know-your-sleep-genetics?retryWrites=true&w=majority&appName=Cluster0'
 client = MongoClient(mongo_uri)
 db = client['know-your-sleep-genetics']  # Use your database name
 users_collection = db['users']
