@@ -23,9 +23,9 @@ def home():
 def about():
     return render_template('about.html')
 
-@app.route('/download')
+@app.route('/ZG93bmxvYWR0aGVjc3Y=')
 def download():
-    return render_template('download.html')
+    return render_template('ZG93bmxvYWR0aGVjc3Y=.html')
 
 @app.route('/quiz')
 def quiz():
