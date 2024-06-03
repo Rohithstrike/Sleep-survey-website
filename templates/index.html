@@ -1,55 +1,43 @@
-<!DOCTYPE html> <!-- Defines the document type as HTML5 -->
-<html lang="en"> <!-- Specifies the language of the document -->
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8"> <!-- Declares the character encoding for the document -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Sets the viewport width to the device's width -->
-    <title>Know Your Sleep Genetics</title> <!-- Sets the title of the webpage -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}"> <!-- Links an external stylesheet for styling -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Know Your Sleep Genetics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
 </head>
 
 <body>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
-
-    <div class="header"> <!-- Defines a header section -->
+    <div class="header">
         <div class="header__logo">
-            <img src="{{ url_for('static', filename='svg/moon3.svg') }}" alt="Logo" class="logo"> <!-- Logo image -->
-            
+            <img src="{{ url_for('static', filename='svg/moon3.svg') }}" alt="Logo" class="logo">
         </div>
-        <nav class="navbar"> <!-- Navigation bar -->
-            <ul class="navbar__menu"> <!-- Unordered list for menu items -->
+        <nav class="navbar">
+            <ul class="navbar__menu">
                 <li class="navbar__item">
-                    <a href="{{ url_for('home') }}" class="navbar__link"><span>Home</span></a> <!-- Home link -->
+                    <a href="{{ url_for('home') }}" class="navbar__link"><span>Home</span></a>
                 </li>
                 <li class="navbar__item">
-                    <a href="{{ url_for('about') }}" class="navbar__link"><span>About</span></a> <!-- About link -->
+                    <a href="{{ url_for('about') }}" class="navbar__link"><span>About</span></a>
                 </li>
                 <li class="navbar__item">
-                    <a href="mailto:decodeyourclockgene@gmail.com" class="navbar__link"><span>Contact</span></a> <!-- Contact link -->
+                    <a href="mailto:decodeyourclockgene@gmail.com" class="navbar__link"><span>Contact</span></a>
                 </li>
             </ul>
         </nav>
     </div>
-    
 
-    <div class="container"> <!-- Container for main content -->
-        <h1>KNOW 
-            <br> YOUR <br> SLEEP GENETICS</h1> <!-- Main heading -->
-        <h2>Your nail clippings hold the key to understand your sleep DNA. 
-            <br> A part of the journey towards better sleep</h2> <!-- Subheading -->
+    <div class="container">
+        <h1>KNOW <br> YOUR <br> SLEEP GENETICS</h1>
+        <h2>Your nail clippings hold the key to understanding your sleep DNA. <br> A part of the journey towards better sleep</h2>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+
     <div class="buttons">
-        <a href="{{ url_for('home') }}"><button class="btn"><span></span><p data-start="good luck!" data-text="Lets goo!!" data-title="Take Quiz"></p></button></a>
+        <a href="{{ url_for('home') }}">
+            <button class="btn"><span></span><p data-start="good luck!" data-text="Lets goo!!" data-title="Take Quiz"></p></button>
+        </a>
     </div>
 </body>
 
