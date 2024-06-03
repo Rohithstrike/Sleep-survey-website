@@ -11,12 +11,12 @@ body {
 
 .container {
   text-align: center;
-  margin-top: 1px; 
+  margin-top: 1px; /* Adjust as needed */
 }
 
 h1 {
   font-size: 80px;
-  color: #fff; 
+  color: #fff; /* Bright white color */
   margin-bottom: 20px; 
   font-family: 'Nunito', sans-serif;
   text-align: left;
@@ -24,38 +24,56 @@ h1 {
   position: relative;
   top: 5px;
   left: 20px;
-  font-weight: 700; 
+  font-weight: 700; /* Increase font weight for crispness */
+}
+
+h2-container {
+background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+padding: 20px; /* Adjust padding as needed */
+border-radius: 10px; /* Rounded corners */
+max-width: 400px; /* Limit the width of the container */
+margin: 0 auto; /* Center the container horizontally */
 }
 
 h2 {
-  font-size: 35px;
-  color: #fff; 
-  margin: 0; 
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700; 
-  text-align: center; 
+font-size: 35px;
+color: #fff; /* Bright white color */
+margin: 0; /* Remove default margin */
+font-family: 'Nunito', sans-serif;
+font-weight: 700; /* Increase font weight for crispness */
+text-align: center; /* Center the text */
 }
 
+
+
+/* nav bar */ 
+
+
+/* Variables */
 :root {
   --borderRadius: 10px;
   --spacer: 1rem;
   --primary: #C4151C;
-  --text: #fff;
+  --text: #ffffff;
   --linkHeight: calc(var(--spacer) * 3.5);
   --timing: 250ms;
+  --transition: var(--timing) ease all;
   --linkWidth: 10rem;
 }
 
+/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@600&display=swap');
 
+/* Global Styles */
 body {
-  background-color: (0,0,255,0.5);
+
+  background-color:(0,0,255,0.5);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
 }
-
+/* Header Styles */
 .header {
   position: sticky;
   top: 0;
@@ -70,12 +88,19 @@ body {
   align-items: center;
   gap: 3rem;
 }
-
-.header__logo {
-  margin-right: auto; 
-  margin-left: auto; 
+.black-rectangle {
+  background-color: rgb(158, 84, 255);
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
 }
 
+/* Navbar Styles */
 .navbar {
   display: flex;
   align-items: center;
@@ -118,244 +143,275 @@ body {
   transform: translate(0);
 }
 
-.buttons {
-  display: flex;
-  justify-content: space-around;
-  top: 20px; 
-  left: 20px;
-}
-
-.buttons button {
-  width: 150px;
-  height: 50px;
-  background-color: white;
-  margin: 20px;
-  color: #568fa6;
-  position: relative;
-  overflow: hidden;
-  font-size: 14px;
-  letter-spacing: 1px;
-  font-weight: 500;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-}
-
-.buttons button:before, .buttons button:after {
-  content: "";
+.navbar__item:last-child:before {
+  content: '';
   position: absolute;
-  width: 0;
-  height: 2px;
-  background-color: #350ee1;
-  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
-}
-
-.buttons button:before {
-  right: 0;
-  top: 0;
-  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
-}
-
-.buttons button:after {
-  left: 0;
-  bottom: 0;
-}
-
-.buttons button span {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  z-index: 1;
-}
-
-.buttons button span:before, .buttons button span:after {
-  content: "";
-  position: absolute;
+  left: -8rem;
+  margin-left: calc(var(--linkWidth) / 2);
+  bottom: -1.25rem;
+  height: 0.5rem;
   width: 2px;
-  height: 0;
-  background-color: #1607e0;
-  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+  background: var(--primary);
+  box-shadow: 0 -0.5rem var(--primary), 0 -0.5rem var(--primary), 0 0 3rem 0.5rem rgba(255, 255, 255, 0.2), 2rem 0 0 rgba(255, 255, 255, 0.2), -3rem 0 0 rgba(255, 255, 255, 0.2), -2rem 0 0 rgba(255, 255, 255, 0.2), -1rem 0 0 rgba(255, 255, 255, 0.2), 1rem 0 0 rgba(255, 255, 255, 0.2), 2rem 0 0 rgba(255, 255, 255, 0.2), 3rem 0 0 rgba(255, 255, 255, 0.2);
+  transition: var(--transition);
 }
 
-.buttons button span:before {
-  right: 0;
-  top: 0;
-  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
-}
+.header__logo {
+  margin-right: auto; /* Pushes the logo to the left */
+  margin-left: auto; /* Pushes the logo to the right */
 
-.buttons button span:after {
-  left: 0;
-  bottom: 0;
 }
-
-.buttons button p {
-  padding: 0;
-  margin: 0;
-  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
-  position: absolute;
-  width: 100%;
-  height: 100%;
+.quiz-button-container {
+  text-align: center;
+  margin-top: 40px; /* Adjust margin as needed */
 }
-
-.buttons button p:before, .buttons button p:after {
-  position: absolute;
-  width: 100%;
-  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
-  z-index: 1;
-  left: 0;
-}
-
-.buttons button p:before {
-  content: attr(data-title);
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.buttons button p:after {
-  content: attr(data-text);
-  top: 150%;
-  color: #071ee6;
-}
-
-.buttons button:hover:before, .buttons button:hover:after {
-  width: 100%;
-}
-
-.buttons button:hover span {
-  z-index: 1;
-}
-
-.buttons button:hover span:before, .buttons button:hover span:after {
-  height: 100%;
-}
-
-.buttons button:hover p:before {
-  top: -50%;
-  transform: rotate(5deg);
-}
-
-.buttons button:hover p:after {
-  top: 50%;
-  background-color: transparent;
-  transform: translateY(-50%);
-}
-
-.buttons button.start {
-  background-color: #0707ec;
-  box-shadow: 0px 5px 10px -10px rgb(107, 0, 0);
-  transition: all 0.2s ease;
-}
-
-.buttons button.start p:before {
-  top: -50%;
-  transform: rotate(5deg);
-}
-
-.buttons button.start p:after {
-  color: white;
-  transition: all 0s ease;
-  content: attr(data-start);
-  top: 50%;
-  transform: translateY(-50%);
-  animation: start 0.3s ease;
-  animation-fill-mode: forwards;
-}
-
-@keyframes start {
-  from {
-      top: -50%;
-  }
-}
-
-.buttons button.start:hover:before, .buttons button.start:hover:after {
-  display: none;
-}
-
-.buttons button.start:hover span {
-  display: none;
-}
-
-.buttons button:active {
-  outline: none;
+.home-button-container {
+  text-align: center;
+  margin-top: 40px; /* Adjust margin as needed */
+ 
+}  
+#takeQuizButton {
+  padding: 20px 40px; /* Adjust padding for button size */
+  font-size: 20px; /* Adjust font size for button text */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
   border: none;
-}
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;}
 
-.buttons button:focus {
-  outline: 0;
-}
+#homeButton {
+  padding: 20px 40px; /* Adjust padding for button size */
+  font-size: 20px; /* Adjust font size for button text */
+  background-color: #007bff; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;}
+
+  #takeQuizButton:hover {
+    background-color: green  /* Darker shade on hover */
+  }
+
+  #homeButton:hover {
+    background-color: green /* Darker shade on hover */
+  }
 
 .logo {
-  width: 90px; 
-  height: 70px; 
+  width: 90px; /* Change this value to adjust the width */
+  height: 70px; /* Automatically adjust height according to width */
   color: whitesmoke;
-  transition: transform 0.3s ease; 
+}
+
+
+
+.logo {
+  transition: transform 0.3s ease; /* Smooth transition */
 }
 
 .logo:hover {
-  transform: scale(1.1); 
+  transform: scale(1.1); /* Scale up the logo on hover */
 }
 
-#takeQuizButton:hover {
-  background-color: green;
+
+
+/*bg*/
+/*txt*/
+/*success*/
+.buttons {
+display: flex;
+justify-content: space-around;
+top: 20px;
+left: 20px;
 }
 
-#homeButton:hover {
-  background-color: green;
+.buttons button {
+width: 150px;
+height: 50px;
+background-color: white;
+margin: 20px;
+color: #568fa6;
+position: relative;
+overflow: hidden;
+font-size: 14px;
+letter-spacing: 1px;
+font-weight: 500;
+text-transform: uppercase;
+transition: all 0.3s ease;
+cursor: pointer;
+border: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 3px;
 }
 
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 60px;
-    text-align: center;
-    margin-left: 0;
-    left: 0;
-  }
+.buttons button:before, .buttons button:after {
+content: "";
+position: absolute;
+width: 0;
+height: 2px;
+background-color: #350ee1;
+transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
 
-  h2 {
-    font-size: 28px;
-    padding: 0 10px;
-  }
+.buttons button:before {
+right: 0;
+top: 0;
+transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
 
-  .buttons {
-    flex-direction: column;
-  }
+.buttons button:after {
+left: 0;
+bottom: 0;
+}
 
-  .buttons button {
-    width: 100%;
-    margin: 10px 0;
-  }
+.buttons button span {
+width: 100%;
+height: 100%;
+position: absolute;
+left: 0;
+top: 0;
+margin: 0;
+padding: 0;
+z-index: 1;
+}
 
-  .navbar__menu {
-    flex-direction: column;
-  }
+.buttons button span:before, .buttons button span:after {
+content: "";
+position: absolute;
+width: 2px;
+height: 0;
+background-color: #1607e0;
+transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
 
-  .navbar__item {
-    margin-bottom: 10px;
-  }
+.buttons button span:before {
+right: 0;
+top: 0;
+transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
 
-  .navbar__link {
-    width: auto;
-    height: auto;
-    padding: 10px;
-  }
+.buttons button span:after {
+left: 0;
+bottom: 0;
+}
 
-  .header__logo {
-    margin: 0 auto;
-  }
+.buttons button p {
+padding: 0;
+margin: 0;
+transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+position: absolute;
+width: 100%;
+height: 100%;
+}
 
-  .header {
-    height: auto;
-    flex-direction: column;
-    padding: 1rem;
-  }
+.buttons button p:before, .buttons button p:after {
+position: absolute;
+width: 100%;
+transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+z-index: 1;
+left: 0;
+}
+
+.buttons button p:before {
+content: attr(data-title);
+top: 50%;
+transform: translateY(-50%);
+}
+
+.buttons button p:after {
+content: attr(data-text);
+top: 150%;
+color: #071ee6;
+}
+
+.buttons button:hover:before, .buttons button:hover:after {
+width: 100%;
+}
+
+.buttons button:hover span {
+z-index: 1;
+}
+
+.buttons button:hover span:before, .buttons button:hover span:after {
+height: 100%;
+}
+
+.buttons button:hover p:before {
+top: -50%;
+transform: rotate(5deg);
+}
+
+.buttons button:hover p:after {
+top: 50%;
+background-color: transparent;
+transform: translateY(-50%);
+}
+
+.buttons button.start {
+background-color: #0707ec;
+box-shadow: 0px 5px 10px -10px rgb(107, 0, 0);
+transition: all 0.2s ease;
+}
+
+.buttons button.start p:before {
+top: -50%;
+transform: rotate(5deg);
+}
+
+.buttons button.start p:after {
+color: white;
+transition: all 0s ease;
+content: attr(data-start);
+top: 50%;
+transform: translateY(-50%);
+animation: start 0.3s ease;
+animation-fill-mode: forwards;
+}
+
+@keyframes start {
+from {
+  top: -50%;
+}
+}
+
+.buttons button.start:hover:before, .buttons button.start:hover:after {
+display: none;
+}
+
+.buttons button.start:hover span {
+display: none;
+}
+
+.buttons button:active {
+outline: none;
+border: none;
+}
+
+.buttons button:focus {
+outline: 0;
+}
+
+
+.buttons button {
+width: 150px;
+height: 50px;
+background-color: #ffffff; /* Change background color to white */
+margin: 20px;
+color: #568fa6;
+position: relative;
+overflow: hidden;
+font-size: 14px;
+letter-spacing: 1px;
+font-weight: 500;
+text-transform: uppercase;
+transition: all 0.3s ease;
+cursor: pointer;
+border: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 3px;
 }
