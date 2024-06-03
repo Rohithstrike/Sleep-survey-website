@@ -26,6 +26,7 @@
 </nav>
 </div>
 <form id="quizForm" class="mt-4" action="/submit" method="post">
+<div class="form-container">
 <div id="personalDetails">
 <div class="form-group">
 <label for="name">Name:</label>
@@ -50,6 +51,7 @@
 <div class="form-group">
 <label for="email">Email:</label>
 <input type="email" class="form-control" id="email" name="email" required>
+</from>
 </div>
 
 <button type="button" class="btn btn-primary btn-next" onclick="showQuestions()">Next</button>
@@ -81,7 +83,7 @@
 <div class="form-check">
 <input class="form-check-input" type="radio" name="question2" id="question2-2" value="3" onchange="calculateSum()">
 <label class="form-check-label" for="question2-2">Afternoon</label>
-</div> 
+</div>
 <div class="form-check">
 <input class="form-check-input" type="radio" name="question2" id="question2-3" value="1" onchange="calculateSum()">
 <label class="form-check-label" for="question2-3">Night</label>
@@ -91,19 +93,19 @@
 <div class="form-group">
 <label for="question3">Question 3: If there is a specific time at which you have to get up in the morning, to what extent are you dependent on being woken up by an alarm clock?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question3" id="question3-1" value="4" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question3" id="question3-1" value="1" onchange="calculateSum()">
 <label class="form-check-label" for="question3-1">Not at all dependent</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question3" id="question3-2" value="3" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question3" id="question3-2" value="2" onchange="calculateSum()">
 <label class="form-check-label" for="question3-2">Slightly dependent</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question3" id="question3-3" value="2" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question3" id="question3-3" value="3" onchange="calculateSum()">
 <label class="form-check-label" for="question3-3">Fairly dependent</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question3" id="question3-4" value="1" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question3" id="question3-4" value="4" onchange="calculateSum()">
 <label class="form-check-label" for="question3-4">Very dependent</label>
 </div>
 </div>
@@ -191,19 +193,19 @@
 <div class="form-group">
 <label for="question8">Question 8: When you have no commitments the next day, at what time do you go to bed compared to your usual bedtime?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question8" id="question8-1" value="4" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question8" id="question8-1" value="1" onchange="calculateSum()">
 <label class="form-check-label" for="question8-1">Seldom or never later</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question8" id="question8-2" value="3" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question8" id="question8-2" value="2" onchange="calculateSum()">
 <label class="form-check-label" for="question8-2">Less than one hour later</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question8" id="question8-3" value="2" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question8" id="question8-3" value="3" onchange="calculateSum()">
 <label class="form-check-label" for="question8-3">1-2 hours later</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question8" id="question8-4" value="1" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question8" id="question8-4" value="4" onchange="calculateSum()">
 <label class="form-check-label" for="question8-4">More than two hours later</label>
 </div>
 </div>
@@ -211,19 +213,19 @@
 <div class="form-group">
 <label for="question9">Question 9: You have decided to engage in some physical exercise. A friend suggests that you do this one hour twice a week and the best time for him is between 7:00-8:00 a.m. Bearing in mind nothing else but your own “feeling best” rhythm, how do you think you would perform?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question9" id="question9-1" value="4" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question9" id="question9-1" value="1" onchange="calculateSum()">
 <label class="form-check-label" for="question9-1">Would be on good form</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question9" id="question9-2" value="3" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question9" id="question9-2" value="2" onchange="calculateSum()">
 <label class="form-check-label" for="question9-2">Would be on reasonable form</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question9" id="question9-3" value="2" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question9" id="question9-3" value="3" onchange="calculateSum()">
 <label class="form-check-label" for="question9-3">Would find it difficult</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question9" id="question9-4" value="1" onchange="calculateSum()">
+<input class="form-check-input" type="radio" name="question9" id="question9-4" value="4" onchange="calculateSum()">
 <label class="form-check-label" for="question9-4">Would find it very difficult</label>
 </div>
 </div>
@@ -255,19 +257,19 @@
 <div class="form-group">
 <label for="question11">Question 11: You wish to be at your peak performance for a test which you know is going to be mentally exhausting and lasting for two hours. You are entirely free to plan your day and considering only your own “feeling best” rhythm, which ONE of the four testing times would you choose?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question11" id="question11-1" value="6">
+<input class="form-check-input" type="radio" name="question11" id="question11-1" value="1">
 <label class="form-check-label" for="question11-1">8:00 am to 10:00 am</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question11" id="question11-2" value="4">
+<input class="form-check-input" type="radio" name="question11" id="question11-2" value="2">
 <label class="form-check-label" for="question11-2">11:00 am to 1:00 pm</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question11" id="question11-3" value="2">
+<input class="form-check-input" type="radio" name="question11" id="question11-3" value="3">
 <label class="form-check-label" for="question11-3">3:00 pm to 5:00 pm</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question11" id="question11-4" value="0">
+<input class="form-check-input" type="radio" name="question11" id="question11-4" value="4">
 <label class="form-check-label" for="question11-4">7:00 pm to 9:00 pm</label>
 </div>
 </div>
@@ -275,7 +277,7 @@
 <div class="form-group">
 <label for="question12">Question 12: If you went to bed at 11:00 pm at what level of tiredness would you be?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question12" id="question12-1" value="0">
+<input class="form-check-input" type="radio" name="question12" id="question12-1" value="1">
 <label class="form-check-label" for="question12-1">Not at all tired</label>
 </div>
 <div class="form-check">
@@ -287,7 +289,7 @@
 <label class="form-check-label" for="question12-3">Fairly tired</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question12" id="question12-4" value="5">
+<input class="form-check-input" type="radio" name="question12" id="question12-4" value="4">
 <label class="form-check-label" for="question12-4">Very tired</label>
 </div>
 </div>
@@ -295,19 +297,19 @@
 <div class="form-group">
 <label for="question13">Question 13: For some reason you have gone to bed several hours later than usual, but there is no need to get up at any particular time the next morning. Which ONE of the following events are you most likely to experience?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question13" id="question13-1" value="4">
+<input class="form-check-input" type="radio" name="question13" id="question13-1" value="1">
 <label class="form-check-label" for="question13-1">Will wake up at usual time and will NOT fall asleep</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question13" id="question13-2" value="3">
-<label class="form-check-label" for="question13-2">Will wake up at usual time and will doze thereafter</label>
+<input class="form-check-input" type="radio" name="question13" id="question13-2" value="2">
+<label class="form-check-label" for="question13-2">Will wake upat usual time and will doze thereafter</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question13" id="question13-3" value="2">
+<input class="form-check-input" type="radio" name="question13" id="question13-3" value="3">
 <label class="form-check-label" for="question13-3">Will wake up at usual time but will fall asleep again</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question13" id="question13-4" value="1">
+<input class="form-check-input" type="radio" name="question13" id="question13-4" value="4">
 <label class="form-check-label" for="question13-4">Will NOT wake up until later than usual</label>
 </div>
 </div>
@@ -320,7 +322,7 @@
 </div>
 <div class="form-check">
 <input class="form-check-input" type="radio" name="question14" id="question14-2" value="2">
-<label class="form-check-label" for="question14-2">Would take a nap before and  sleep after</label>
+<label class="form-check-label" for="question14-2">Would take a nap beforeand sleep after</label>
 </div>
 <div class="form-check">
 <input class="form-check-input" type="radio" name="question14" id="question14-3" value="3">
@@ -335,19 +337,19 @@
 <div class="form-group">
 <label for="question15">Question 15: You have to do two hours of hard physical work. You are entirely free to plan your day considering only your own “feeling best” rhythm. Which ONE of the following times would you choose?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question15" id="question15-1" value="4">
+<input class="form-check-input" type="radio" name="question15" id="question15-1" value="1">
 <label class="form-check-label" for="question15-1">8:00 am to 10:00 am</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question15" id="question15-2" value="3">
+<input class="form-check-input" type="radio" name="question15" id="question15-2" value="2">
 <label class="form-check-label" for="question15-2">11:00 am to 1:00 pm</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question15" id="question15-3" value="2">
+<input class="form-check-input" type="radio" name="question15" id="question15-3" value="3">
 <label class="form-check-label" for="question15-3">3:00 pm to 5:00 pm</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question15" id="question15-4" value="1">
+<input class="form-check-input" type="radio" name="question15" id="question15-4" value="4">
 <label class="form-check-label" for="question15-4">7:00 pm to 9:00 pm</label>
 </div>
 </div>

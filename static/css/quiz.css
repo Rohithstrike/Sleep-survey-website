@@ -8,7 +8,6 @@
   --timing: 250ms;
   --transition: var(--timing) ease all;
   --linkWidth: 10rem;
-  --shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Styles */
@@ -20,10 +19,9 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: rgb(202, 202, 202);
-  background-blend-mode: screen;
-  background-size: 20% 100%; /* Adjust the size of the gradient stripes */
-  background-position: 0% 0%, 50% 0%, 100% 0%; /* Position the gradient stripes */
+  background: url('/static/background/login_bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   transition: background-color 0.5s ease; /* Add transition effect to body background */
 }
 
@@ -35,7 +33,7 @@ body {
   right: 0;
   background: #31426a; /* Nav bar colour */
   color: var(--text);
-  padding: 0 var(--spacer) * 2;
+  padding: 0 calc(var(--spacer) * 2);
   box-shadow: 0 0 40px rgba(187, 0, 238, 0);
   height: 6rem;
   display: flex;
@@ -80,7 +78,6 @@ body {
   color: var(--text);
   transition: var(--transition);
   text-decoration: none;
-  width: var(--linkWidth);
   text-transform: uppercase;
   box-shadow: var(--shadow); /* Add box shadow to links */
 }
@@ -94,7 +91,7 @@ body {
 }
 
 .navbar__link:hover span {
-  opacity: 5;
+  opacity: 1;
   transform: translate(0);
 }
 
@@ -129,7 +126,7 @@ body {
 /* Container Styles */
 .container {
   max-width: 800px;
-  margin:20px auto;
+  margin: 20px auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 5px;
@@ -149,6 +146,8 @@ label {
   font-weight: bold;
   display: block; /* Ensures labels appear on top of inputs */
   margin-bottom: 5px; /* Adds space between label and input */
+  color: white;
+
 }
 
 /* Input Styles */
@@ -215,7 +214,7 @@ select:focus {
 
 /* Responsive layout */
 @media (max-width: 768px) {
- .container {
+  .container {
     padding: 10px;
   }
 }
@@ -278,30 +277,6 @@ select:focus {
   background-color: #0056b3;
 }
 
-/* Custom background for the quiz */
-body {
-  background-image: linear-gradient(to bottom, #4e54c8, #8f94fb);
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.personal-details {
-  max-width: 800px;
-  margin: 100px auto; /* Change this to "auto" for left and right margin */
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 0; /* Changed border-radius to 0 for square appearance */
-  box-shadow: var(--shadow);
-  transform: translateY(0); /* Add initial transform value */
-  transition: transform 0.5s ease; /* Add transition effect to personal details transform */
-}
-
-.personal-details:hover {
-  transform: translateY(-10px); /* Add hover effect to personal details transform */
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Add hover effect to personal details box shadow */
-}
-
-
 .form-group {
   display: flex;
   flex-direction: column;
@@ -320,4 +295,39 @@ body {
 
 .form-check input[type="radio"] {
   margin-right: 5px;
+}
+
+.form-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  border: transparent;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: transparent;
+  margin-top: 80px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-control:focus {
+  border-color: #66afe9;
+  outline: none;
+  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
