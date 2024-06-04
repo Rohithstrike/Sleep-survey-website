@@ -1,5 +1,6 @@
-from flask import Flask, request, redirect, render_template, send_from_directory
+from flask import Flask, request, redirect, render_template, send_from_directory, url_for
 from pymongo import MongoClient
+from bson import ObjectId
 import csv
 import os
 
@@ -31,17 +32,33 @@ def download():
 def quiz():
     return render_template('quiz.html')
 
-@app.route('/loader')
-def loader():
-    return render_template('loader.html')
 
 @app.route('/thankyou')
 def thankyou():
-    return render_template('thankyou.html')
+    user_id = request.args.get('user_id')
+    if user_id:
+        user = users_collection.find_one({'_id': ObjectId(user_id)})
+        if user:
+            user['_id'] = str(user['_id'])
+            return render_template('thankyou.html', user=user)
+    return 'User not found', 404
+
+def calculate_sum_of_questions(form_data):
+    question_keys = [f'question{i}' for i in range(1, 20)]
+    total_sum = sum(int(form_data.get(key, 0)) for key in question_keys)
+    return total_sum
+
+@app.route('/loader')
+def loader():
+    user_id = request.args.get('user_id')
+    return render_template('loader.html', user_id=user_id)
+
 
 @app.route('/submit', methods=['POST'])
 def submit():
     try:
+        form_data = request.form
+        total_sum = calculate_sum_of_questions(form_data)
         user = {
             'name': request.form['name'],
             'age': request.form['age'],
@@ -66,10 +83,11 @@ def submit():
             'question16': request.form['question16'],
             'question17': request.form['question17'],
             'question18': request.form['question18'],
-            'question19': request.form['question19']
+            'question19': request.form['question19'],
+            'total_sum': total_sum
         }
-        users_collection.insert_one(user)
-        return redirect('/loader')
+        result = users_collection.insert_one(user)
+        return redirect(url_for('loader', user_id=str(result.inserted_id)))
     except Exception as e:
         return str(e), 500
 
