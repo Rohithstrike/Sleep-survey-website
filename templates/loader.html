@@ -7,19 +7,18 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/loader.css') }}">
 </head>
 <body>
-    <div id="page">
-        <div id="container">
-            <div id="ring"></div>
-            <div id="ring"></div>
-            <div id="ring"></div>
-            <div id="ring"></div>
-            <div id="h3">loading</div>
-        </div>
+    <div id="dna">
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
+        <div></div><div></div><div></div><div></div><div></div>
     </div>
     <script>
         setTimeout(function() {
             window.location.href = '{{ url_for("thankyou", user_id=user_id) }}';
-        }, 3000);
+        }, 8000);
     </script>
 </body>
 </html>

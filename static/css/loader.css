@@ -1,101 +1,304 @@
-#page {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-#h3 {
-  color: rgb(255, 255, 255);
-}
-
-#ring {
-  width: 190px;
-  height: 190px;
-  border: 1px solid transparent;
-  border-radius: 50%;
-  position: absolute;
-}
-
-#ring:nth-child(1) {
-  border-bottom: 8px solid rgb(30, 1, 254);
-  animation: rotate1 2s linear infinite;
-}
-
-@keyframes rotate1 {
-  from {
-    transform: rotateX(50deg) rotateZ(110deg);
-  }
-
-  to {
-    transform: rotateX(50deg) rotateZ(470deg);
-  }
-}
-
-#ring:nth-child(2) {
-  border-bottom: 8px solid rgb(129, 6, 236);
-  animation: rotate2 2s linear infinite;
-}
-
-@keyframes rotate2 {
-  from {
-    transform: rotateX(20deg) rotateY(50deg) rotateZ(20deg);
-  }
-
-  to {
-    transform: rotateX(20deg) rotateY(50deg) rotateZ(380deg);
-  }
-}
-
-#ring:nth-child(3) {
-  border-bottom: 8px solid rgb(255, 0, 0);
-  animation: rotate3 2s linear infinite;
-}
-
-@keyframes rotate3 {
-  from {
-    transform: rotateX(40deg) rotateY(130deg) rotateZ(450deg);
-  }
-
-  to {
-    transform: rotateX(40deg) rotateY(130deg) rotateZ(90deg);
-  }
-}
-
-#ring:nth-child(4) {
-  border-bottom: 8px solid rgb(252, 183, 55);
-  animation: rotate4 2s linear infinite;
-}
-
-@keyframes rotate4 {
-  from {
-    transform: rotateX(70deg) rotateZ(270deg);
-  }
-
-  to {
-    transform: rotateX(70deg) rotateZ(630deg);
-  }
-}
-
-#page {
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #000000;
-}
-
-#container {
-  position: relative;
-}
-
-/* ... other styles ... */
-
 body {
+  background-color: #EEE;
+}
+
+#dna {
+  position: absolute;
+  top: 50%;
+  height: 240px;
+  left: 50%;
+  width: 800px;
+  margin-top: -120px;
+  margin-left: -400px;
+  perspective: 1000px;
+}
+
+#dna div {
+  position: relative;
+  top: 50%;
+  left: 60px;
+  width: 2px;
+  height: 160px;
+  margin-top: -80px;
   background-color: black;
+  float: left;
+  transform-style: preserve-3d;
+  margin-left: 20px;
+  animation: rotation 4s linear infinite;
+}
+
+#dna div::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -4px;
+  right: -4px;
+  height: 10px;
+  background-color: black;
+  border-radius: 5px;
+  animation: rotation 4s linear infinite reverse;
+  z-index: 1;
+}
+
+#dna div::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: -4px;
+  right: -4px;
+  height: 10px;
+  background-color: black;
+  border-radius: 5px;
+  animation: rotation 4s linear infinite reverse;
+  z-index: 1;
+}
+
+/* Apply animation delays */
+#dna div:nth-child(1) {
+  animation-delay: -9s;
+}
+#dna div:nth-child(1)::before,
+#dna div:nth-child(1)::after {
+  animation-delay: -9s;
+}
+
+#dna div:nth-child(2) {
+  animation-delay: -8.85s;
+}
+#dna div:nth-child(2)::before,
+#dna div:nth-child(2)::after {
+  animation-delay: -8.85s;
+}
+
+#dna div:nth-child(3) {
+  animation-delay: -8.7s;
+}
+#dna div:nth-child(3)::before,
+#dna div:nth-child(3)::after {
+  animation-delay: -8.7s;
+}
+
+#dna div:nth-child(4) {
+  animation-delay: -8.55s;
+}
+#dna div:nth-child(4)::before,
+#dna div:nth-child(4)::after {
+  animation-delay: -8.55s;
+}
+
+#dna div:nth-child(5) {
+  animation-delay: -8.4s;
+}
+#dna div:nth-child(5)::before,
+#dna div:nth-child(5)::after {
+  animation-delay: -8.4s;
+}
+
+#dna div:nth-child(6) {
+  animation-delay: -8.25s;
+}
+#dna div:nth-child(6)::before,
+#dna div:nth-child(6)::after {
+  animation-delay: -8.25s;
+}
+
+#dna div:nth-child(7) {
+  animation-delay: -8.1s;
+}
+#dna div:nth-child(7)::before,
+#dna div:nth-child(7)::after {
+  animation-delay: -8.1s;
+}
+
+#dna div:nth-child(8) {
+  animation-delay: -7.95s;
+}
+#dna div:nth-child(8)::before,
+#dna div:nth-child(8)::after {
+  animation-delay: -7.95s;
+}
+
+#dna div:nth-child(9) {
+  animation-delay: -7.8s;
+}
+#dna div:nth-child(9)::before,
+#dna div:nth-child(9)::after {
+  animation-delay: -7.8s;
+}
+
+#dna div:nth-child(10) {
+  animation-delay: -7.65s;
+}
+#dna div:nth-child(10)::before,
+#dna div:nth-child(10)::after {
+  animation-delay: -7.65s;
+}
+
+#dna div:nth-child(11) {
+  animation-delay: -7.5s;
+}
+#dna div:nth-child(11)::before,
+#dna div:nth-child(11)::after {
+  animation-delay: -7.5s;
+}
+
+#dna div:nth-child(12) {
+  animation-delay: -7.35s;
+}
+#dna div:nth-child(12)::before,
+#dna div:nth-child(12)::after {
+  animation-delay: -7.35s;
+}
+
+#dna div:nth-child(13) {
+  animation-delay: -7.2s;
+}
+#dna div:nth-child(13)::before,
+#dna div:nth-child(13)::after {
+  animation-delay: -7.2s;
+}
+
+#dna div:nth-child(14) {
+  animation-delay: -7.05s;
+}
+#dna div:nth-child(14)::before,
+#dna div:nth-child(14)::after {
+  animation-delay: -7.05s;
+}
+
+#dna div:nth-child(15) {
+  animation-delay: -6.9s;
+}
+#dna div:nth-child(15)::before,
+#dna div:nth-child(15)::after {
+  animation-delay: -6.9s;
+}
+
+#dna div:nth-child(16) {
+  animation-delay: -6.75s;
+}
+#dna div:nth-child(16)::before,
+#dna div:nth-child(16)::after {
+  animation-delay: -6.75s;
+}
+
+#dna div:nth-child(17) {
+  animation-delay: -6.6s;
+}
+#dna div:nth-child(17)::before,
+#dna div:nth-child(17)::after {
+  animation-delay: -6.6s;
+}
+
+#dna div:nth-child(18) {
+  animation-delay: -6.45s;
+}
+#dna div:nth-child(18)::before,
+#dna div:nth-child(18)::after {
+  animation-delay: -6.45s;
+}
+
+#dna div:nth-child(19) {
+  animation-delay: -6.3s;
+}
+#dna div:nth-child(19)::before,
+#dna div:nth-child(19)::after {
+  animation-delay: -6.3s;
+}
+
+#dna div:nth-child(20) {
+  animation-delay: -6.15s;
+}
+#dna div:nth-child(20)::before,
+#dna div:nth-child(20)::after {
+  animation-delay: -6.15s;
+}
+
+#dna div:nth-child(21) {
+  animation-delay: -6s;
+}
+#dna div:nth-child(21)::before,
+#dna div:nth-child(21)::after {
+  animation-delay: -6s;
+}
+
+#dna div:nth-child(22) {
+  animation-delay: -5.85s;
+}
+#dna div:nth-child(22)::before,
+#dna div:nth-child(22)::after {
+  animation-delay: -5.85s;
+}
+
+#dna div:nth-child(23) {
+  animation-delay: -5.7s;
+}
+#dna div:nth-child(23)::before,
+#dna div:nth-child(23)::after {
+  animation-delay: -5.7s;
+}
+
+#dna div:nth-child(24) {
+  animation-delay: -5.55s;
+}
+#dna div:nth-child(24)::before,
+#dna div:nth-child(24)::after {
+  animation-delay: -5.55s;
+}
+
+#dna div:nth-child(25) {
+  animation-delay: -5.4s;
+}
+#dna div:nth-child(25)::before,
+#dna div:nth-child(25)::after {
+  animation-delay: -5.4s;
+}
+
+#dna div:nth-child(26) {
+  animation-delay: -5.25s;
+}
+#dna div:nth-child(26)::before,
+#dna div:nth-child(26)::after {
+  animation-delay: -5.25s;
+}
+
+#dna div:nth-child(27) {
+  animation-delay: -5.1s;
+}
+#dna div:nth-child(27)::before,
+#dna div:nth-child(27)::after {
+  animation-delay: -5.1s;
+}
+
+#dna div:nth-child(28) {
+  animation-delay: -4.95s;
+}
+#dna div:nth-child(28)::before,
+#dna div:nth-child(28)::after {
+  animation-delay: -4.95s;
+}
+
+#dna div:nth-child(29) {
+  animation-delay: -4.8s;
+}
+#dna div:nth-child(29)::before,
+#dna div:nth-child(29)::after {
+  animation-delay: -4.8s;
+}
+
+#dna div:nth-child(30) {
+  animation-delay: -4.65s;
+}
+#dna div:nth-child(30)::before,
+#dna div:nth-child(30)::after {
+  animation-delay: -4.65s;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(359deg);
+  }
 }
