@@ -295,8 +295,13 @@ select:focus {
 }
 
 .form-check input[type="radio"] {
+<<<<<<< HEAD
   width: 13px;
   height: 13px;
+=======
+  width: 20px;
+  height: 20px;
+>>>>>>> origin/main
   transform: scale(1.5); 
   /*radio button size here */
   margin-right: 10px;

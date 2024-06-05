@@ -85,7 +85,10 @@ def submit():
             'question18': request.form['question18'],
             'question19': request.form['question19'],
             'total_sum': total_sum
+<<<<<<< HEAD
             
+=======
+>>>>>>> origin/main
         }
         result = users_collection.insert_one(user)
         return redirect(url_for('loader', user_id=str(result.inserted_id)))
