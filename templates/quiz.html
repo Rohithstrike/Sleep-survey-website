@@ -59,34 +59,50 @@
 
 <div id="quizQuestions" style="display: none;">
 <div class="form-group">
-<label for="question1">1. How do you feel about waking up early in the morning?</label>
+<label for="question1">1.Considering only your own “feeling best” rhythm, at what time would you get up if you were entirely free to plan your day?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question1" id="question1-1" value="5" onchange="calculateSum()">
-<label class="form-check-label" for="question1-1">I love it!</label>
+<input class="form-check-input" type="radio" name="question1" id="question1-1" value="1" onchange="calculateSum()">
+<label class="form-check-label" for="question1-1">5:00 am to 6:30 am</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question1" id="question1-2" value="3" onchange="calculateSum()">
-<label class="form-check-label" for="question1-2">It's okay.</label>
+<input class="form-check-input" type="radio" name="question1" id="question1-2" value="2" onchange="calculateSum()">
+<label class="form-check-label" for="question1-2">6:30 am to 7:45 am</label>
 </div>
 <div class="form-check">
 <input class="form-check-input" type="radio" name="question1" id="question1-3" value="1" onchange="calculateSum()">
-<label class="form-check-label" for="question1-3">I hate it!</label>
+<label class="form-check-label" for="question1-3">7:45 am to 9:45 am</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="question1" id="question1-2" value="3" onchange="calculateSum()">
+<label class="form-check-label" for="question1-2">9:45 am to 11:00 am</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="question1" id="question1-2" value="1" onchange="calculateSum()">
+<label class="form-check-label" for="question1-2">11:00 am to 12:00 noon</label>
 </div>
 </div>
 
 <div class="form-group">
-<label for="question2">2. When do you feel most productive?</label>
+<label for="question2">2.Considering only your own “feeling-best” rhythm, at what time would you go to bed if you were entirely free to plan your evening ?</label><br>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question2" id="question2-1" value="5" onchange="calculateSum()">
-<label class="form-check-label" for="question2-1">Morning</label>
+<input class="form-check-input" type="radio" name="question2" id="question2-1" value="1" onchange="calculateSum()">
+<label class="form-check-label" for="question2-1">8:00 pm to 9:00 pm</label>
 </div>
 <div class="form-check">
-<input class="form-check-input" type="radio" name="question2" id="question2-2" value="3" onchange="calculateSum()">
-<label class="form-check-label" for="question2-2">Afternoon</label>
+<input class="form-check-input" type="radio" name="question2" id="question2-2" value="2" onchange="calculateSum()">
+<label class="form-check-label" for="question2-2">9:00 pm to 10:15 pm</label>
 </div>
 <div class="form-check">
 <input class="form-check-input" type="radio" name="question2" id="question2-3" value="1" onchange="calculateSum()">
-<label class="form-check-label" for="question2-3">Night</label>
+<label class="form-check-label" for="question2-3">10:15 pm to 12:30 am</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="question2" id="question2-3" value="1" onchange="calculateSum()">
+<label class="form-check-label" for="question2-3">12:30 am to 1:45 am</label>
+</div>
+<div class="form-check">
+<input class="form-check-input" type="radio" name="question2" id="question2-3" value="1" onchange="calculateSum()">
+<label class="form-check-label" for="question2-3">1:45 am to 3:00 am</label>
 </div>
 </div>
 
@@ -479,87 +495,96 @@
 </form>
 
 <div id="sum" style="display: none;"></div>
-
 <script>
-let sum = 0;
+    let sum = 0;
 
-function calculateSum() {
-const selectedElement = event.target;
-const selectedValue = parseInt(selectedElement.value);
-const previousValue = parseInt(selectedElement.getAttribute('data-previous-value') || 0);
+    function calculateSum() {
+        const selectedElement = event.target;
+        const selectedValue = parseInt(selectedElement.value);
+        const previousValue = parseInt(selectedElement.getAttribute('data-previous-value') || 0);
+        if (!isNaN(selectedValue)) {
+            if (selectedValue > previousValue) {
+                sum += selectedValue - previousValue;
+            } else if (selectedValue < previousValue) {
+                sum -= previousValue - selectedValue;
+            }
+            selectedElement.setAttribute('data-previous-value', selectedValue);
+        }
+        document.cookie = `sum=${sum}; path=/`;
+    }
 
-if (!isNaN(selectedValue)) {
-if (selectedValue > previousValue) {
-sum += selectedValue - previousValue;
-} else if (selectedValue < previousValue) {
-sum -= previousValue - selectedValue;
-}
-selectedElement.setAttribute('data-previous-value', selectedValue);
-}
+    document.addEventListener('DOMContentLoaded', function() {
+        var quizForm = document.getElementById('quizForm');
+        quizForm.addEventListener('keydown', function(e) {
+            if (e.keyCode === 13) {
+                e.preventDefault();
+            }
+        });
+        var btnNext = document.querySelector('.btn-next');
+        var btnBack = document.querySelector('.btn-back');
+        btnNext.addEventListener('click', showQuestions);
+        btnBack.addEventListener('click', showPersonalDetails);
+        quizForm.addEventListener('submit', function(e) {
+            if (!validateForm()) {
+                e.preventDefault();
+            } else {
+                document.cookie = `sum=${sum}; path=/`;
+            }
+        });
+    });
 
-document.cookie = `sum=${sum}; path=/`;
-}
+    function showQuestions() {
+        if (validatePersonalDetails()) {
+            const name = document.getElementById("name").value.trim();
+            document.cookie = `name=${name}; path=/`;
+            document.getElementById('personalDetails').style.display = 'none';
+            document.getElementById('quizQuestions').style.display = 'block';
+        }
+    }
 
-document.addEventListener('DOMContentLoaded', function() {
-var quizForm = document.getElementById('quizForm');
-quizForm.addEventListener('keydown', function(e) {
-if (e.keyCode === 13) {
-e.preventDefault();
-}
-});
+    function showPersonalDetails() {
+        document.getElementById('quizQuestions').style.display = 'none';
+        document.getElementById('personalDetails').style.display = 'block';
+    }
 
-var btnNext = document.querySelector('.btn-next');
-var btnBack = document.querySelector('.btn-back');
-btnNext.addEventListener('click', showQuestions);
-btnBack.addEventListener('click', showPersonalDetails);
+    function validateForm() {
+        var radios = document.querySelectorAll('#quizQuestions input[type="radio"]');
+        var allQuestionsAnswered = true;
+        for (var i = 0; i < radios.length; i++) {
+            var questionGroup = radios[i].name;
+            var groupAnswered = false;
+            for (var j = 0; j < radios.length; j++) {
+                if (radios[j].name === questionGroup && radios[j].checked) {
+                    groupAnswered = true;
+                    break;
+                }
+            }
+            if (!groupAnswered) {
+                allQuestionsAnswered = false;
+                break;
+            }
+        }
+        if (!allQuestionsAnswered) {
+            alert('Please answer all questions before submitting.');
+            return false;
+        }
+        return validatePersonalDetails();
+    }
 
-quizForm.addEventListener('submit', function(e) {
-if (!validateForm()) {
-e.preventDefault();
-} else {
-document.cookie = `sum=${sum}; path=/`;
-}
-});
-});
+    function validatePersonalDetails() {
+        const name = document.getElementById("name").value.trim();
+        const age = document.getElementById("age").value.trim();
+        const gender = document.getElementById("gender").value.trim();
+        const number = document.getElementById("number").value.trim();
+        const email = document.getElementById("email").value.trim();
+        if (name === "" || age === "" || gender === "" || number === "" || email === "") {
+            alert("Please fill in all the required fields in the Personal Details section before proceeding.");
+            return false;
+        }
+        return true;
+    }
 
-function showQuestions() {
-if (validatePersonalDetails()) {
-const name = document.getElementById("name").value.trim();
-document.cookie = `name=${name}; path=/`;
-document.getElementById('personalDetails').style.display = 'none';
-document.getElementById('quizQuestions').style.display = 'block';
-}
-}
-
-function showPersonalDetails() {
-document.getElementById('quizQuestions').style.display = 'none';
-document.getElementById('personalDetails').style.display = 'block';
-}
-
-function validateForm() {
-var radios = document.querySelectorAll('#quizQuestions input[type="radio"]');
-for (var i = 0; i < radios.length; i++) {
-if (radios[i].checked) {
-return true;
-}
-}
-alert('Please answer all questions before submitting.');
-return false;
-}
-
-function validatePersonalDetails() {
-const name = document.getElementById("name").value.trim();
-const age = document.getElementById("age").value.trim();
-const gender = document.getElementById("gender").value.trim();
-const number = document.getElementById("number").value.trim();const email = document.getElementById("email").value.trim();
-
-if (name === "" || age === "" || gender === "" || number === "" || email === "") {
-alert("Please fill in all the required fields in the Personal Details section before proceeding.");
-return false;
-}
-
-return true;
-}
+    
 </script>
 
 </body>

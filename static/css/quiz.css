@@ -27,7 +27,7 @@ body {
 
 /* Header Styles */
 .header {
-  position: sticky;
+  position: relative;
   top: 0;
   left: 0;
   right: 0;
@@ -281,6 +281,7 @@ select:focus {
   display: flex;
   flex-direction: column;
   margin-bottom: 20px;
+  padding: 3;
 }
 
 .form-check {
@@ -294,7 +295,11 @@ select:focus {
 }
 
 .form-check input[type="radio"] {
-  margin-right: 5px;
+  width: 13px;
+  height: 13px;
+  transform: scale(1.5); 
+  /*radio button size here */
+  margin-right: 10px;
 }
 
 .form-container {
@@ -331,3 +336,4 @@ select:focus {
   outline: none;
   box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
 }
+
