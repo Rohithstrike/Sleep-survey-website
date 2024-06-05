@@ -1,2 +1,6 @@
-name,age,gender,number,email,question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19
-dk,33,female,98876655432,dk@gmail.com,1,1,4,4,4,4,4,4,4,5,4,4,4,4,4,4,6,8,5
+name,age,gender,number,email,question1,question2,question3,question4,question5,question6,question7,question8,question9,question10,question11,question12,question13,question14,question15,question16,question17,question18,question19,total_sum
+enna da,33,male,98876655432,rohith3085@gmail.com,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,19
+Rohtih ,33,male,98876655432,rohith5803@gmail.com,1,1,4,4,4,4,4,4,4,5,4,4,4,4,4,4,6,8,8,81
+dk3,33,female,3333,dk@gmail.com,5,5,4,4,4,4,4,4,4,5,4,4,4,4,4,4,6,8,8,89
+Rohtih ,44,male,98876655432,rohith5803@gmail.com,5,5,4,4,4,4,4,4,4,5,4,4,4,4,4,4,6,8,8,89
+Rohtih ,44,male,98876655432,rohith5803@gmail.com,5,5,4,4,4,4,4,4,4,5,4,4,4,4,4,4,6,8,8,89
