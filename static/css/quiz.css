@@ -19,9 +19,9 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: url('/static/background/login_bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: url('/static/background/black\ DNA.jpg');
+  background-repeat:space;
+  background-size: auto;
   transition: background-color 0.5s ease; /* Add transition effect to body background */
 }
 
@@ -296,7 +296,7 @@ select:focus {
 
 .form-check input[type="radio"] {
   width: 20px;
-  height: 20px;
+  height: 12px;
   transform: scale(1.5); 
   /*radio button size here */
   margin-right: 10px;
