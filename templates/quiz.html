@@ -472,95 +472,101 @@
 
 <div id="sum" style="display: none;"></div>
 <script>
-    let sum = 0;
+ let sum = 0;
 
-    function calculateSum() {
-        const selectedElement = event.target;
-        const selectedValue = parseInt(selectedElement.value);
-        const previousValue = parseInt(selectedElement.getAttribute('data-previous-value') || 0);
-        if (!isNaN(selectedValue)) {
-            if (selectedValue > previousValue) {
-                sum += selectedValue - previousValue;
-            } else if (selectedValue < previousValue) {
-                sum -= previousValue - selectedValue;
-            }
-            selectedElement.setAttribute('data-previous-value', selectedValue);
+function calculateSum() {
+    const selectedElement = event.target;
+    const selectedValue = parseInt(selectedElement.value);
+    const previousValue = parseInt(selectedElement.getAttribute('data-previous-value') || 0);
+    if (!isNaN(selectedValue)) {
+        if (selectedValue > previousValue) {
+            sum += selectedValue - previousValue;
+        } else if (selectedValue < previousValue) {
+            sum -= previousValue - selectedValue;
         }
-        document.cookie = `sum=${sum}; path=/`;
+        selectedElement.setAttribute('data-previous-value', selectedValue);
     }
+    document.cookie = `sum=${sum}; path=/`;
+}
 
-    document.addEventListener('DOMContentLoaded', function() {
-        var quizForm = document.getElementById('quizForm');
-        quizForm.addEventListener('keydown', function(e) {
-            if (e.keyCode === 13) {
-                e.preventDefault();
-            }
-        });
-        var btnNext = document.querySelector('.btn-next');
-        var btnBack = document.querySelector('.btn-back');
-        btnNext.addEventListener('click', showQuestions);
-        btnBack.addEventListener('click', showPersonalDetails);
-        quizForm.addEventListener('submit', function(e) {
-            if (!validateForm()) {
-                e.preventDefault();
-            } else {
-                document.cookie = `sum=${sum}; path=/`;
-            }
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    var quizForm = document.getElementById('quizForm');
+    quizForm.addEventListener('keydown', function(e) {
+        if (e.keyCode === 13) {
+            e.preventDefault();
+        }
     });
-
-    function showQuestions() {
-        if (validatePersonalDetails()) {
-            const name = document.getElementById("name").value.trim();
-            document.cookie = `name=${name}; path=/`;
-            document.getElementById('personalDetails').style.display = 'none';
-            document.getElementById('quizQuestions').style.display = 'block';
+    var btnNext = document.querySelector('.btn-next');
+    var btnBack = document.querySelector('.btn-back');
+    btnNext.addEventListener('click', showQuestions);
+    btnBack.addEventListener('click', showPersonalDetails);
+    quizForm.addEventListener('submit', function(e) {
+        if (!validateForm()) {
+            e.preventDefault();
+        } else {
+            document.cookie = `sum=${sum}; path=/`;
         }
-    }
+    });
+});
 
-    function showPersonalDetails() {
-        document.getElementById('quizQuestions').style.display = 'none';
-        document.getElementById('personalDetails').style.display = 'block';
+function showQuestions() {
+    if (validatePersonalDetails()) {
+        const name = document.getElementById("name").value.trim();
+        document.cookie = `name=${name}; path=/`;
+        document.getElementById('personalDetails').style.display = 'none';
+        document.getElementById('quizQuestions').style.display = 'block';
     }
+}
 
-    function validateForm() {
-        var radios = document.querySelectorAll('#quizQuestions input[type="radio"]');
-        var allQuestionsAnswered = true;
-        for (var i = 0; i < radios.length; i++) {
-            var questionGroup = radios[i].name;
-            var groupAnswered = false;
-            for (var j = 0; j < radios.length; j++) {
-                if (radios[j].name === questionGroup && radios[j].checked) {
-                    groupAnswered = true;
-                    break;
-                }
-            }
-            if (!groupAnswered) {
-                allQuestionsAnswered = false;
+function showPersonalDetails() {
+    document.getElementById('quizQuestions').style.display = 'none';
+    document.getElementById('personalDetails').style.display = 'block';
+}
+
+function validateForm() {
+    var radios = document.querySelectorAll('#quizQuestions input[type="radio"]');
+    var allQuestionsAnswered = true;
+    for (var i = 0; i < radios.length; i++) {
+        var questionGroup = radios[i].name;
+        var groupAnswered = false;
+        for (var j = 0; j < radios.length; j++) {
+            if (radios[j].name === questionGroup && radios[j].checked) {
+                groupAnswered = true;
                 break;
             }
         }
-        if (!allQuestionsAnswered) {
-            alert('Please answer all questions before submitting.');
-            return false;
+        if (!groupAnswered) {
+            allQuestionsAnswered = false;
+            break;
         }
-        return validatePersonalDetails();
     }
-
-    function validatePersonalDetails() {
-        const name = document.getElementById("name").value.trim();
-        const age = document.getElementById("age").value.trim();
-        const gender = document.getElementById("gender").value.trim();
-        const number = document.getElementById("number").value.trim();
-        const email = document.getElementById("email").value.trim();
-        if (name === "" || age === "" || gender === "" || number === "" || email === "") {
-            alert("Please fill in all the required fields in the Personal Details section before proceeding.");
-            return false;
-        }
-        return true;
+    if (!allQuestionsAnswered) {
+        alert('Please answer all questions before submitting.');
+        return false;
     }
+    return validatePersonalDetails();
+}
 
-    
+function validatePersonalDetails() {
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const gender = document.getElementById("gender").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const email = document.getElementById("email").value.trim();
+    // Enhanced email pattern
+    const emailPattern = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)$/i;
+    if (name === "" || age === "" || gender === "" || number === "" || email === "") {
+        alert("Please fill in all the required fields in the Personal Details section before proceeding.");
+        return false;
+    }
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address.");
+        return false;
+    }
+    return true;
+}
+
+  
 </script>
 
 </body>

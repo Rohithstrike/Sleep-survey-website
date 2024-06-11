@@ -19,8 +19,9 @@
 
 body {
   font-family: 'Open Sans', sans-serif;
-  background: url('/static/background/login_bg.jpg');
-  background-repeat:repeat;
+  background-image: url('/static/background/login_bg.jpg');
+  background-color: whitesmoke;
+  background-repeat:round;
   background-size: auto;
   transition: background-color 0.5s ease; /* Add transition effect to body background */
 }
@@ -31,7 +32,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: #31426a; /* Nav bar colour */
+  background:#31426a; /* Nav bar colour */
   color: var(--text);
   padding: 0 calc(var(--spacer) * 2);
   box-shadow: 0 0 40px rgba(187, 0, 238, 0);
@@ -145,8 +146,8 @@ body {
 label {
   font-weight: bold;
   display: block; /* Ensures labels appear on top of inputs */
-  margin-bottom: 5px; /* Adds space between label and input */
-  color: white;
+  margin-bottom: 1px; /* Adds space between label and input */
+  color: rgb(255, 255, 255);
 
 }
 
@@ -261,7 +262,7 @@ select:focus {
 }
 
 .options label {
-  color: #333;
+  color: #ffffff;
 }
 
 .submit-btn {
