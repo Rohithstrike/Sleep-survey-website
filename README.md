@@ -24,7 +24,8 @@ Follow these steps to set up the project locally:
 
 Clone the repository:
 
-git clone https://github.com/your-username/sleep-survey-website.git
+git clone https://github.com/Rohithstrike/Sleep-survey-website.git
+
 cd sleep-survey-website
 
 Create and activate a virtual environment:
