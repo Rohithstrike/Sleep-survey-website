@@ -553,18 +553,25 @@ function validatePersonalDetails() {
     const gender = document.getElementById("gender").value.trim();
     const number = document.getElementById("number").value.trim();
     const email = document.getElementById("email").value.trim();
+    
     // Enhanced email pattern
     const emailPattern = /^[^\s@]+@[^\s@]+\.(com|net|org|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum)$/i;
+    // Generalized college email pattern
+    const collegeEmailPattern = /^[a-zA-Z]{2}\d{4}@srmist\.edu\.in$/i;
+    
     if (name === "" || age === "" || gender === "" || number === "" || email === "") {
         alert("Please fill in all the required fields in the Personal Details section before proceeding.");
         return false;
     }
-    if (!emailPattern.test(email)) {
+    
+    if (!emailPattern.test(email) && !collegeEmailPattern.test(email)) {
         alert("Please enter a valid email address.");
         return false;
     }
+    
     return true;
 }
+
 
   
 </script>
