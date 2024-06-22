@@ -27,27 +27,24 @@ h1 {
   font-weight: 700; /* Increase font weight for crispness */
 }
 
-h2-container {
-background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-padding: 20px; /* Adjust padding as needed */
-border-radius: 10px; /* Rounded corners */
-max-width: 400px; /* Limit the width of the container */
-margin: 0 auto; /* Center the container horizontally */
+.h2-container {
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  padding: 20px; /* Adjust padding as needed */
+  border-radius: 10px; /* Rounded corners */
+  max-width: 400px; /* Limit the width of the container */
+  margin: 0 auto; /* Center the container horizontally */
 }
 
 h2 {
-font-size: 35px;
-color: #fff; /* Bright white color */
-margin: 0; /* Remove default margin */
-font-family: 'Nunito', sans-serif;
-font-weight: 700; /* Increase font weight for crispness */
-text-align: center; /* Center the text */
+  font-size: 35px;
+  color: #fff; /* Bright white color */
+  margin: 0; /* Remove default margin */
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700; /* Increase font weight for crispness */
+  text-align: center; /* Center the text */
 }
 
-
-
-/* nav bar */ 
-
+/* nav bar */
 
 /* Variables */
 :root {
@@ -66,28 +63,29 @@ text-align: center; /* Center the text */
 
 /* Global Styles */
 body {
-
-  background-color:(0,0,255,0.5);
+  background-color: (0, 0, 255, 0.5);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   font-family: 'Open Sans', sans-serif;
 }
+
 /* Header Styles */
 .header {
   position: sticky;
   top: 0;
   left: 0;
   right: 0;
-  background: transparent;        
+  background: transparent;
   color: var(--text);
-  padding: 0 var(--spacer) * 2;
+  padding: 0 calc(var(--spacer) * 2);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.03);
   height: 6rem;
   display: flex;
   align-items: center;
   gap: 3rem;
 }
+
 .black-rectangle {
   background-color: rgb(158, 84, 255);
   color: rgb(255, 255, 255);
@@ -159,17 +157,18 @@ body {
 .header__logo {
   margin-right: auto; /* Pushes the logo to the left */
   margin-left: auto; /* Pushes the logo to the right */
-
 }
+
 .quiz-button-container {
   text-align: center;
-  margin-top: 40px; /* Adjust margin as needed */
+  margin-top: 10px; /* Adjust margin as needed */
 }
+
 .home-button-container {
   text-align: center;
   margin-top: 40px; /* Adjust margin as needed */
- 
-}  
+}
+
 #takeQuizButton {
   padding: 20px 40px; /* Adjust padding for button size */
   font-size: 20px; /* Adjust font size for button text */
@@ -178,7 +177,8 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;}
+  transition: background-color 0.3s ease;
+}
 
 #homeButton {
   padding: 20px 40px; /* Adjust padding for button size */
@@ -188,23 +188,22 @@ body {
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  transition: background-color 0.3s ease;}
+  transition: background-color 0.3s ease;
+}
 
-  #takeQuizButton:hover {
-    background-color: green  /* Darker shade on hover */
-  }
+#takeQuizButton:hover {
+  background-color: green; /* Darker shade on hover */
+}
 
-  #homeButton:hover {
-    background-color: green /* Darker shade on hover */
-  }
+#homeButton:hover {
+  background-color: green; /* Darker shade on hover */
+}
 
 .logo {
   width: 90px; /* Change this value to adjust the width */
   height: 70px; /* Automatically adjust height according to width */
   color: whitesmoke;
 }
-
-
 
 .logo {
   transition: transform 0.3s ease; /* Smooth transition */
@@ -214,204 +213,207 @@ body {
   transform: scale(1.1); /* Scale up the logo on hover */
 }
 
-
-
 /*bg*/
 /*txt*/
 /*success*/
 .buttons {
-display: flex;
-justify-content: space-around;
-top: 20px;
-left: 20px;
+  display: flex;
+  justify-content: space-around;
+  top: 20px;
+  left: 20px;
 }
 
 .buttons button {
-width: 150px;
-height: 50px;
-background-color: white;
-margin: 20px;
-color: #568fa6;
-position: relative;
-overflow: hidden;
-font-size: 14px;
-letter-spacing: 1px;
-font-weight: 500;
-text-transform: uppercase;
-transition: all 0.3s ease;
-cursor: pointer;
-border: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 3px;
+  width: 150px;
+  height: 50px;
+  background-color: white;
+  margin: 20px;
+  color: #568fa6;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
 }
 
-.buttons button:before, .buttons button:after {
-content: "";
-position: absolute;
-width: 0;
-height: 2px;
-background-color: #350ee1;
-transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+.buttons button:before,
+.buttons button:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #350ee1;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
 }
 
 .buttons button:before {
-right: 0;
-top: 0;
-transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
 }
 
 .buttons button:after {
-left: 0;
-bottom: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .buttons button span {
-width: 100%;
-height: 100%;
-position: absolute;
-left: 0;
-top: 0;
-margin: 0;
-padding: 0;
-z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
 }
 
-.buttons button span:before, .buttons button span:after {
-content: "";
-position: absolute;
-width: 2px;
-height: 0;
-background-color: #1607e0;
-transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+.buttons button span:before,
+.buttons button span:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: #1607e0;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
 }
 
 .buttons button span:before {
-right: 0;
-top: 0;
-transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
 }
 
 .buttons button span:after {
-left: 0;
-bottom: 0;
+  left: 0;
+  bottom: 0;
 }
 
 .buttons button p {
-padding: 0;
-margin: 0;
-transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
-position: absolute;
-width: 100%;
-height: 100%;
+  padding: 0;
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  position: absolute;
+  width: 100%;
+  height: 100%;
 }
 
-.buttons button p:before, .buttons button p:after {
-position: absolute;
-width: 100%;
-transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
-z-index: 1;
-left: 0;
+.buttons button p:before,
+.buttons button p:after {
+  position: absolute;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  z-index: 1;
+  left: 0;
 }
 
 .buttons button p:before {
-content: attr(data-title);
-top: 50%;
-transform: translateY(-50%);
+  content: attr(data-title);
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .buttons button p:after {
-content: attr(data-text);
-top: 150%;
-color: #071ee6;
+  content: attr(data-text);
+  top: 150%;
+  color: #071ee6;
 }
 
-.buttons button:hover:before, .buttons button:hover:after {
-width: 100%;
+.buttons button:hover:before,
+.buttons button:hover:after {
+  width: 100%;
 }
 
 .buttons button:hover span {
-z-index: 1;
+  z-index: 1;
 }
 
-.buttons button:hover span:before, .buttons button:hover span:after {
-height: 100%;
+.buttons button:hover span:before,
+.buttons button:hover span:after {
+  height: 100%;
 }
 
 .buttons button:hover p:before {
-top: -50%;
-transform: rotate(5deg);
+  top: -50%;
+  transform: rotate(5deg);
 }
 
 .buttons button:hover p:after {
-top: 50%;
-background-color: transparent;
-transform: translateY(-50%);
+  top: 50%;
+  background-color: transparent;
+  transform: translateY(-50%);
 }
 
 .buttons button.start {
-background-color: #0707ec;
-box-shadow: 0px 5px 10px -10px rgb(107, 0, 0);
-transition: all 0.2s ease;
+  background-color: #0707ec;
+  box-shadow: 0px 5px 10px -10px rgb(107, 0, 0);
+  transition: all 0.2s ease;
 }
 
 .buttons button.start p:before {
-top: -50%;
-transform: rotate(5deg);
+  top: -50%;
+  transform: rotate(5deg);
 }
 
 .buttons button.start p:after {
-color: white;
-transition: all 0s ease;
-content: attr(data-start);
-top: 50%;
-transform: translateY(-50%);
-animation: start 0.3s ease;
-animation-fill-mode: forwards;
+  color: white;
+  transition: all 0s ease;
+  content: attr(data-start);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: start 0.3s ease;
+  animation-fill-mode: forwards;
 }
 
 @keyframes start {
-from {
-  top: -50%;
-}
+  from {
+    top: -50%;
+  }
 }
 
-.buttons button.start:hover:before, .buttons button.start:hover:after {
-display: none;
+.buttons button.start:hover:before,
+.buttons button.start:hover:after {
+  display: none;
 }
 
 .buttons button.start:hover span {
-display: none;
+  display: none;
 }
 
 .buttons button:active {
-outline: none;
-border: none;
+  outline: none;
+  border: none;
 }
 
 .buttons button:focus {
-outline: 0;
+  outline: 0;
 }
 
-
 .buttons button {
-width: 150px;
-height: 50px;
-background-color: #ffffff; /* Change background color to white */
-margin: 20px;
-color: #568fa6;
-position: relative;
-overflow: hidden;
-font-size: 14px;
-letter-spacing: 1px;
-font-weight: 500;
-text-transform: uppercase;
-transition: all 0.3s ease;
-cursor: pointer;
-border: 0;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 3px;
+  width: 150px;
+  height: 50px;
+  background-color: #ffffff; /* Change background color to white */
+  margin: 20px;
+  color: #568fa6;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
 }
