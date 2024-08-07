@@ -21,7 +21,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   background-image: url('/static/background/login_bg.jpg');
   background-color: whitesmoke;
-  background-repeat:round;
+  background-repeat: round;
   background-size: auto;
   transition: background-color 0.5s ease; /* Add transition effect to body background */
 }
@@ -32,7 +32,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background:#31426a; /* Nav bar colour */
+  background: #31426a; /* Nav bar colour */
   color: var(--text);
   padding: 0 calc(var(--spacer) * 2);
   box-shadow: 0 0 40px rgba(187, 0, 238, 0);
@@ -148,7 +148,6 @@ label {
   display: block; /* Ensures labels appear on top of inputs */
   margin-bottom: 1px; /* Adds space between label and input */
   color: rgb(255, 255, 255);
-
 }
 
 /* Input Styles */
@@ -314,27 +313,50 @@ select:focus {
   margin-top: 80px;
 }
 
-.form-group {
-  margin-bottom: 15px;
-}
-
 .form-group label {
-  display: block;
-  margin-bottom: 5px;
   font-weight: bold;
 }
 
-.form-control {
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group select,
+.form-group textarea {
   width: 100%;
-  padding: 8px;
-  box-sizing: border-box;
+  padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
+  box-sizing: border-box;
 }
 
-.form-control:focus {
-  border-color: #66afe9;
-  outline: none;
-  box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+.form-group textarea {
+  height: 100px;
 }
 
+.btn-submit {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-submit:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .header__logo {
+    margin-right: auto;
+  }
+
+  .header__link {
+    font-size: 14px;
+  }
+
+  .navbar__link {
+    width: auto;
+    padding: 0 10px;
+  }
+}
