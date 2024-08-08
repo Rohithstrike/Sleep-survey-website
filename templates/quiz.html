@@ -40,9 +40,9 @@
                     <label for="gender">Gender:</label>
                     <select class="form-control" id="gender" name="gender">
                         <option value="">Select</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -609,53 +609,110 @@ function showPersonalDetails() {
 }
 
 function validatePersonalDetails() {
-            const name = document.getElementById("name").value.trim();
-            const age = document.getElementById("age").value.trim();
-            const gender = document.getElementById("gender").value.trim();
-            const number = document.getElementById("number").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const paternalRegion = document.getElementById("paternalRegion").value.trim();
-            const maternalRegion = document.getElementById("maternalRegion").value.trim();
-            
-            // Enhanced email pattern
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            // Phone number pattern (Indian format)
-            const phonePattern = /^[6-9]\d{9}$/;
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const gender = document.getElementById("gender").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const paternalRegion = document.getElementById("paternalRegion").value.trim();
+    const maternalRegion = document.getElementById("maternalRegion").value.trim();
 
-            if (name === "" || age === "" || gender === "" || number === "" || email === "") {
-                alert("All fields are required.");
-                return false;
-            }
+    const emailPattern = /^([a-z]+\d{4}@srmist\.edu\.in|[^\s@]+@[^\s@]+\.[^\s@]+)$/;
+    const phonePattern = /^[6-9]\d{9}$/;
 
-            if (!emailPattern.test(email)) {
-                alert("Please enter a valid email address.");
-                return false;
-            }
+    let errors = [];
 
-            if (!phonePattern.test(number)) {
-                alert("Please enter a valid 10-digit phone number.");
-                return false;
-            }
+    // Check if any field is empty
+    if (name === "") errors.push("Name is required.");
+    if (age === "") errors.push("Age is required.");
+    if (gender === "") errors.push("Gender is required.");
+    if (number === "") errors.push("Phone number is required.");
+    if (email === "") errors.push("Email is required.");
+    if (paternalRegion === "") errors.push("Paternal region is required.");
+    if (maternalRegion === "") errors.push("Maternal region is required.");
 
-            if (isNaN(age) || age <= 0) {
-                alert("Please enter a valid age.");
-                return false;
-            }
+    // Validate email
+    if (email && !emailPattern.test(email)) {
+        errors.push("Please enter a valid email address.");
+    }
 
-            // Paternal and maternal region validation
-            if (paternalRegion === "") {
-                alert("Please select a paternal region.");
-                return false;
-            }
+    // Validate phone number
+    if (number && !phonePattern.test(number)) {
+        errors.push("Please enter a valid 10-digit phone number.");
+    }
 
-            if (maternalRegion === "") {
-                alert("Please select a maternal region.");
-                return false;
-            }
+    // Validate age
+    if (age && (isNaN(age) || age <= 0 || age > 120)) {
+        errors.push("Please enter a valid age between 1 and 120.");
+    }
 
-            return true;
-        }
-  
+    // Validate gender (assuming valid options are 'Male', 'Female', 'Other')
+    const validGenders = ["Male", "Female", "Other"];
+    if (gender && !validGenders.includes(gender)) {
+        errors.push("Please select a valid gender.");
+    }
+
+    // Show errors if there are any
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }
+
+    return true;
+}function validatePersonalDetails() {
+    const name = document.getElementById("name").value.trim();
+    const age = document.getElementById("age").value.trim();
+    const gender = document.getElementById("gender").value.trim();
+    const number = document.getElementById("number").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const paternalRegion = document.getElementById("paternalRegion").value.trim();
+    const maternalRegion = document.getElementById("maternalRegion").value.trim();
+
+    const emailPattern = /^([a-z]+\d{4}@srmist\.edu\.in|[^\s@]+@[^\s@]+\.[^\s@]+)$/;
+    const phonePattern = /^[6-9]\d{9}$/;
+
+    let errors = [];
+
+    // Check if any field is empty
+    if (name === "") errors.push("Name is required.");
+    if (age === "") errors.push("Age is required.");
+    if (gender === "") errors.push("Gender is required.");
+    if (number === "") errors.push("Phone number is required.");
+    if (email === "") errors.push("Email is required.");
+    if (paternalRegion === "") errors.push("Paternal region is required.");
+    if (maternalRegion === "") errors.push("Maternal region is required.");
+
+    // Validate email
+    if (email && !emailPattern.test(email)) {
+        errors.push("Please enter a valid email address.");
+    }
+
+    // Validate phone number
+    if (number && !phonePattern.test(number)) {
+        errors.push("Please enter a valid 10-digit phone number.");
+    }
+
+    // Validate age
+    if (age && (isNaN(age) || age <= 0 || age > 120)) {
+        errors.push("Please enter a valid age between 1 and 120.");
+    }
+
+    // Validate gender (assuming valid options are 'Male', 'Female', 'Other')
+    const validGenders = ["Male", "Female", "Other"];
+    if (gender && !validGenders.includes(gender)) {
+        errors.push("Please select a valid gender.");
+    }
+
+    // Show errors if there are any
+    if (errors.length > 0) {
+        alert(errors.join("\n"));
+        return false;
+    }
+
+    return true;
+}
+
+
 </script>
 
 </body>

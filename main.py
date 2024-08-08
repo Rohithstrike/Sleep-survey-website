@@ -32,7 +32,6 @@ def download():
 def quiz():
     return render_template('quiz.html')
 
-
 @app.route('/thankyou')
 def thankyou():
     user_id = request.args.get('user_id')
@@ -53,7 +52,6 @@ def loader():
     user_id = request.args.get('user_id')
     return render_template('loader.html', user_id=user_id)
 
-
 @app.route('/submit', methods=['POST'])
 def submit():
     try:
@@ -65,6 +63,8 @@ def submit():
             'gender': request.form['gender'],
             'number': request.form['number'],
             'email': request.form['email'],
+            'paternalRegion': request.form['paternalRegion'],  # New field
+            'maternalRegion': request.form['maternalRegion'],  # New field
             'question1': request.form['question1'],
             'question2': request.form['question2'],
             'question3': request.form['question3'],
@@ -98,7 +98,7 @@ def export_csv():
         csv_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'users.csv')
         with open(csv_path, mode='w', newline='') as file:
             writer = csv.writer(file)
-            header = ['name', 'age', 'gender', 'number', 'email', 'question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10', 'question11', 'question12', 'question13', 'question14', 'question15', 'question16', 'question17', 'question18', 'question19','total_sum']
+            header = ['name', 'age', 'gender', 'number', 'email', 'paternalRegion', 'maternalRegion', 'question1', 'question2', 'question3', 'question4', 'question5', 'question6', 'question7', 'question8', 'question9', 'question10', 'question11', 'question12', 'question13', 'question14', 'question15', 'question16', 'question17', 'question18', 'question19', 'total_sum']
             writer.writerow(header)
             for user in users:
                 row = [user.get(col, '') for col in header]
